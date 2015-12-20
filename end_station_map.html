@@ -1,0 +1,3232 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="//rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="//rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="//birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+   
+   
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_5d76834a42bf424dbc94c0aa406d9abc" style="width: 400px; height: 600px"></div>
+
+   <script>
+
+      
+
+      var base_tile = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+      
+
+      /*
+      addition of the tile layers
+      */
+      
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+      
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_5d76834a42bf424dbc94c0aa406d9abc', {
+                                       center:[40.74, -73.99],
+                                       zoom: 12,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+      
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+      
+
+      
+      var circle_1 = L.circle([40.71729, -73.996375], 89.6037738551, {
+                            color: '#fec45f',
+                            fillColor: '#fec45f',
+                            fillOpacity: 0.6
+                            });
+      circle_1.bindPopup("Elizabeth St & Hester St");
+      circle_1._popup.options.maxWidth = 300;
+      map.addLayer(circle_1)
+      
+      var circle_2 = L.circle([40.70122128, -74.01234218], 122.78727814, {
+                            color: '#fee187',
+                            fillColor: '#fee187',
+                            fillOpacity: 0.6
+                            });
+      circle_2.bindPopup("South St & Whitehall St");
+      circle_2._popup.options.maxWidth = 300;
+      map.addLayer(circle_2)
+      
+      var circle_3 = L.circle([40.75849116, -73.95920622], 117.155691033, {
+                            color: '#fee289',
+                            fillColor: '#fee289',
+                            fillOpacity: 0.6
+                            });
+      circle_3.bindPopup("E 59 St & Sutton Pl");
+      circle_3._popup.options.maxWidth = 300;
+      map.addLayer(circle_3)
+      
+      var circle_4 = L.circle([40.74765947, -73.98490707], 72.7753593966, {
+                            color: '#fec863',
+                            fillColor: '#fec863',
+                            fillOpacity: 0.6
+                            });
+      circle_4.bindPopup("E 33 St & 5 Ave");
+      circle_4._popup.options.maxWidth = 300;
+      map.addLayer(circle_4)
+      
+      var circle_5 = L.circle([40.68216564, -73.95399026], 133.688054116, {
+                            color: '#fffbc2',
+                            fillColor: '#fffbc2',
+                            fillOpacity: 0.6
+                            });
+      circle_5.bindPopup("Hancock St & Bedford Ave");
+      circle_5._popup.options.maxWidth = 300;
+      map.addLayer(circle_5)
+      
+      var circle_6 = L.circle([40.7489006, -73.97604882], 76.5721287537, {
+                            color: '#feb651',
+                            fillColor: '#feb651',
+                            fillOpacity: 0.6
+                            });
+      circle_6.bindPopup("E 39 St & 3 Ave");
+      circle_6._popup.options.maxWidth = 300;
+      map.addLayer(circle_6)
+      
+      var circle_7 = L.circle([40.74173969, -73.99415556], 66.2442604386, {
+                            color: '#bb0026',
+                            fillColor: '#bb0026',
+                            fillOpacity: 0.6
+                            });
+      circle_7.bindPopup("W 21 St & 6 Ave");
+      circle_7._popup.options.maxWidth = 300;
+      map.addLayer(circle_7)
+      
+      var circle_8 = L.circle([40.70823502, -74.00530063], 89.1810572144, {
+                            color: '#fed06c',
+                            fillColor: '#fed06c',
+                            fillOpacity: 0.6
+                            });
+      circle_8.bindPopup("Cliff St & Fulton St");
+      circle_8._popup.options.maxWidth = 300;
+      map.addLayer(circle_8)
+      
+      var circle_9 = L.circle([40.76370739, -73.9851615], 82.9069857697, {
+                            color: '#febe59',
+                            fillColor: '#febe59',
+                            fillOpacity: 0.6
+                            });
+      circle_9.bindPopup("8 Ave & W 52 St");
+      circle_9._popup.options.maxWidth = 300;
+      map.addLayer(circle_9)
+      
+      var circle_10 = L.circle([40.72317958, -73.99480012], 81.9632401295, {
+                            color: '#fd9a42',
+                            fillColor: '#fd9a42',
+                            fillOpacity: 0.6
+                            });
+      circle_10.bindPopup("Mott St & Prince St");
+      circle_10._popup.options.maxWidth = 300;
+      map.addLayer(circle_10)
+      
+      var circle_11 = L.circle([40.76020258, -73.96478473], 116.678309492, {
+                            color: '#feda78',
+                            fillColor: '#feda78',
+                            fillOpacity: 0.6
+                            });
+      circle_11.bindPopup("2 Ave & E 58 St");
+      circle_11._popup.options.maxWidth = 300;
+      map.addLayer(circle_11)
+      
+      var circle_12 = L.circle([40.72066442, -73.98517977], 83.6473433285, {
+                            color: '#feb54f',
+                            fillColor: '#feb54f',
+                            fillOpacity: 0.6
+                            });
+      circle_12.bindPopup("Suffolk St & Stanton St");
+      circle_12._popup.options.maxWidth = 300;
+      map.addLayer(circle_12)
+      
+      var circle_13 = L.circle([40.74901271, -73.98848395], 79.6065024791, {
+                            color: '#fea245',
+                            fillColor: '#fea245',
+                            fillOpacity: 0.6
+                            });
+      circle_13.bindPopup("6 Ave & W 33 St");
+      circle_13._popup.options.maxWidth = 300;
+      map.addLayer(circle_13)
+      
+      var circle_14 = L.circle([40.70905623, -74.01043382], 100.187501828, {
+                            color: '#fec561',
+                            fillColor: '#fec561',
+                            fillOpacity: 0.6
+                            });
+      circle_14.bindPopup("Liberty St & Broadway");
+      circle_14._popup.options.maxWidth = 300;
+      map.addLayer(circle_14)
+      
+      var circle_15 = L.circle([40.71494807, -74.00234482], 99.6657562273, {
+                            color: '#fede80',
+                            fillColor: '#fede80',
+                            fillOpacity: 0.6
+                            });
+      circle_15.bindPopup("Centre St & Worth St");
+      circle_15._popup.options.maxWidth = 300;
+      map.addLayer(circle_15)
+      
+      var circle_16 = L.circle([40.72228087, -73.97668709], 99.8114873996, {
+                            color: '#ffeb9c',
+                            fillColor: '#ffeb9c',
+                            fillOpacity: 0.6
+                            });
+      circle_16.bindPopup("E 6 St & Avenue D");
+      circle_16._popup.options.maxWidth = 300;
+      map.addLayer(circle_16)
+      
+      var circle_17 = L.circle([40.74780373, -73.9734419], 80.9125351515, {
+                            color: '#fea044',
+                            fillColor: '#fea044',
+                            fillOpacity: 0.6
+                            });
+      circle_17.bindPopup("E 39 St & 2 Ave");
+      circle_17._popup.options.maxWidth = 300;
+      map.addLayer(circle_17)
+      
+      var circle_18 = L.circle([40.69308257, -73.97178913], 66.9041755268, {
+                            color: '#ffefa5',
+                            fillColor: '#ffefa5',
+                            fillOpacity: 0.6
+                            });
+      circle_18.bindPopup("Adelphi St & Myrtle Ave");
+      circle_18._popup.options.maxWidth = 300;
+      map.addLayer(circle_18)
+      
+      var circle_19 = L.circle([40.72019576, -73.98997825], 84.4607310297, {
+                            color: '#feac49',
+                            fillColor: '#feac49',
+                            fillOpacity: 0.6
+                            });
+      circle_19.bindPopup("Allen St & Rivington St");
+      circle_19._popup.options.maxWidth = 300;
+      map.addLayer(circle_19)
+      
+      var circle_20 = L.circle([40.73401143, -74.00293877], 77.7394428325, {
+                            color: '#fd903d',
+                            fillColor: '#fd903d',
+                            fillOpacity: 0.6
+                            });
+      circle_20.bindPopup("W 4 St & 7 Ave S");
+      circle_20._popup.options.maxWidth = 300;
+      map.addLayer(circle_20)
+      
+      var circle_21 = L.circle([40.71739973, -73.98016555], 91.645086254, {
+                            color: '#ffea9b',
+                            fillColor: '#ffea9b',
+                            fillOpacity: 0.6
+                            });
+      circle_21.bindPopup("Columbia St & Rivington St");
+      circle_21._popup.options.maxWidth = 300;
+      map.addLayer(circle_21)
+      
+      var circle_22 = L.circle([40.7405826, -74.00550867], 85.310582594, {
+                            color: '#fd9c42',
+                            fillColor: '#fd9c42',
+                            fillOpacity: 0.6
+                            });
+      circle_22.bindPopup("9 Ave & W 14 St");
+      circle_22._popup.options.maxWidth = 300;
+      map.addLayer(circle_22)
+      
+      var circle_23 = L.circle([40.7208736, -73.98085795], 80.5757244433, {
+                            color: '#ffe793',
+                            fillColor: '#ffe793',
+                            fillOpacity: 0.6
+                            });
+      circle_23.bindPopup("E 2 St & Avenue C");
+      circle_23._popup.options.maxWidth = 300;
+      map.addLayer(circle_23)
+      
+      var circle_24 = L.circle([40.75660359, -73.9979009], 75.4509696197, {
+                            color: '#feba55',
+                            fillColor: '#feba55',
+                            fillOpacity: 0.6
+                            });
+      circle_24.bindPopup("W 37 St & 10 Ave");
+      circle_24._popup.options.maxWidth = 300;
+      map.addLayer(circle_24)
+      
+      var circle_25 = L.circle([40.75594159, -74.0021163], 99.5919778317, {
+                            color: '#ffe794',
+                            fillColor: '#ffe794',
+                            fillOpacity: 0.6
+                            });
+      circle_25.bindPopup("W 34 St & 11 Ave");
+      circle_25._popup.options.maxWidth = 300;
+      map.addLayer(circle_25)
+      
+      var circle_26 = L.circle([40.7284186, -73.98713956], 75.8344719327, {
+                            color: '#fd9941',
+                            fillColor: '#fd9941',
+                            fillOpacity: 0.6
+                            });
+      circle_26.bindPopup("St Marks Pl & 2 Ave");
+      circle_26._popup.options.maxWidth = 300;
+      map.addLayer(circle_26)
+      
+      var circle_27 = L.circle([40.72740794, -73.98142006], 84.0308031018, {
+                            color: '#fd953f',
+                            fillColor: '#fd953f',
+                            fillOpacity: 0.6
+                            });
+      circle_27.bindPopup("E 10 St & Avenue A");
+      circle_27._popup.options.maxWidth = 300;
+      map.addLayer(circle_27)
+      
+      var circle_28 = L.circle([40.751396, -74.005226], 86.5617284747, {
+                            color: '#feb852',
+                            fillColor: '#feb852',
+                            fillOpacity: 0.6
+                            });
+      circle_28.bindPopup("11 Ave & W 27 St");
+      circle_28._popup.options.maxWidth = 300;
+      map.addLayer(circle_28)
+      
+      var circle_29 = L.circle([40.74147286, -73.98320928], 69.4455556096, {
+                            color: '#fd953f',
+                            fillColor: '#fd953f',
+                            fillOpacity: 0.6
+                            });
+      circle_29.bindPopup("Lexington Ave & E 26 St");
+      circle_29._popup.options.maxWidth = 300;
+      map.addLayer(circle_29)
+      
+      var circle_30 = L.circle([40.73172428, -74.00674436], 80.3038403579, {
+                            color: '#fd903d',
+                            fillColor: '#fd903d',
+                            fillOpacity: 0.6
+                            });
+      circle_30.bindPopup("Barrow St & Hudson St");
+      circle_30._popup.options.maxWidth = 300;
+      map.addLayer(circle_30)
+      
+      var circle_31 = L.circle([40.73704984, -73.99009296], 71.0309705944, {
+                            color: '#800026',
+                            fillColor: '#800026',
+                            fillOpacity: 0.6
+                            });
+      circle_31.bindPopup("E 17 St & Broadway");
+      circle_31._popup.options.maxWidth = 300;
+      map.addLayer(circle_31)
+      
+      var circle_32 = L.circle([40.69221589, -73.9842844], 81.246571894, {
+                            color: '#fff5b5',
+                            fillColor: '#fff5b5',
+                            fillOpacity: 0.6
+                            });
+      circle_32.bindPopup("Duffield St & Willoughby St");
+      circle_32._popup.options.maxWidth = 300;
+      map.addLayer(circle_32)
+      
+      var circle_33 = L.circle([40.7454973, -74.00197139], 71.5174269582, {
+                            color: '#fd8439',
+                            fillColor: '#fd8439',
+                            fillOpacity: 0.6
+                            });
+      circle_33.bindPopup("9 Ave & W 22 St");
+      circle_33._popup.options.maxWidth = 300;
+      map.addLayer(circle_33)
+      
+      var circle_34 = L.circle([40.76340613, -73.97722479], 88.3621404185, {
+                            color: '#febe59',
+                            fillColor: '#febe59',
+                            fillOpacity: 0.6
+                            });
+      circle_34.bindPopup("W 56 St & 6 Ave");
+      circle_34._popup.options.maxWidth = 300;
+      map.addLayer(circle_34)
+      
+      var circle_35 = L.circle([40.736502, -73.97809472], 76.333338257, {
+                            color: '#feae4a',
+                            fillColor: '#feae4a',
+                            fillOpacity: 0.6
+                            });
+      circle_35.bindPopup("E 23 St & 1 Ave");
+      circle_35._popup.options.maxWidth = 300;
+      map.addLayer(circle_35)
+      
+      var circle_36 = L.circle([40.73971301, -73.99456405], 68.3528575681, {
+                            color: '#fc4f2a',
+                            fillColor: '#fc4f2a',
+                            fillOpacity: 0.6
+                            });
+      circle_36.bindPopup("W 18 St & 6 Ave");
+      circle_36._popup.options.maxWidth = 300;
+      map.addLayer(circle_36)
+      
+      var circle_37 = L.circle([40.68691865, -73.976682], 79.3072334259, {
+                            color: '#fff3ae',
+                            fillColor: '#fff3ae',
+                            fillOpacity: 0.6
+                            });
+      circle_37.bindPopup("Lafayette Ave & Fort Greene Pl");
+      circle_37._popup.options.maxWidth = 300;
+      map.addLayer(circle_37)
+      
+      var circle_38 = L.circle([40.68940747, -73.96885458], 82.6218685529, {
+                            color: '#fff5b5',
+                            fillColor: '#fff5b5',
+                            fillOpacity: 0.6
+                            });
+      circle_38.bindPopup("DeKalb Ave & Vanderbilt Ave");
+      circle_38._popup.options.maxWidth = 300;
+      map.addLayer(circle_38)
+      
+      var circle_39 = L.circle([40.72453734, -73.98185424], 74.0492657406, {
+                            color: '#fec45f',
+                            fillColor: '#fec45f',
+                            fillOpacity: 0.6
+                            });
+      circle_39.bindPopup("E 6 St & Avenue B");
+      circle_39._popup.options.maxWidth = 300;
+      map.addLayer(circle_39)
+      
+      var circle_40 = L.circle([40.72467721, -73.98783413], 75.7522207388, {
+                            color: '#feae4a',
+                            fillColor: '#feae4a',
+                            fillOpacity: 0.6
+                            });
+      circle_40.bindPopup("E 3 St & 1 Ave");
+      circle_40._popup.options.maxWidth = 300;
+      map.addLayer(circle_40)
+      
+      var circle_41 = L.circle([40.73912601, -73.97973776], 73.3206608496, {
+                            color: '#febe59',
+                            fillColor: '#febe59',
+                            fillOpacity: 0.6
+                            });
+      circle_41.bindPopup("E 25 St & 2 Ave");
+      circle_41._popup.options.maxWidth = 300;
+      map.addLayer(circle_41)
+      
+      var circle_42 = L.circle([40.73492695, -73.99200509], 66.9483986436, {
+                            color: '#e41c1d',
+                            fillColor: '#e41c1d',
+                            fillOpacity: 0.6
+                            });
+      circle_42.bindPopup("University Pl & E 14 St");
+      circle_42._popup.options.maxWidth = 300;
+      map.addLayer(circle_42)
+      
+      var circle_43 = L.circle([40.7262807, -73.98978041], 75.0992792569, {
+                            color: '#feb44e',
+                            fillColor: '#feb44e',
+                            fillOpacity: 0.6
+                            });
+      circle_43.bindPopup("E 4 St & 2 Ave");
+      circle_43._popup.options.maxWidth = 300;
+      map.addLayer(circle_43)
+      
+      var circle_44 = L.circle([40.72710258, -74.00297088], 77.3998869812, {
+                            color: '#fd923e',
+                            fillColor: '#fd923e',
+                            fillOpacity: 0.6
+                            });
+      circle_44.bindPopup("MacDougal St & Prince St");
+      circle_44._popup.options.maxWidth = 300;
+      map.addLayer(circle_44)
+      
+      var circle_45 = L.circle([40.72502876, -73.99069656], 76.3749117251, {
+                            color: '#fec561',
+                            fillColor: '#fec561',
+                            fillOpacity: 0.6
+                            });
+      circle_45.bindPopup("E 2 St & 2 Ave");
+      circle_45._popup.options.maxWidth = 300;
+      map.addLayer(circle_45)
+      
+      var circle_46 = L.circle([40.69766564, -73.98476437], 94.7189531935, {
+                            color: '#fff9be',
+                            fillColor: '#fff9be',
+                            fillOpacity: 0.6
+                            });
+      circle_46.bindPopup("Concord St & Bridge St");
+      circle_46._popup.options.maxWidth = 300;
+      map.addLayer(circle_46)
+      
+      var circle_47 = L.circle([40.693261, -73.968896], 88.6927607256, {
+                            color: '#ffeda0',
+                            fillColor: '#ffeda0',
+                            fillOpacity: 0.6
+                            });
+      circle_47.bindPopup("Clinton Ave & Myrtle Ave");
+      circle_47._popup.options.maxWidth = 300;
+      map.addLayer(circle_47)
+      
+      var circle_48 = L.circle([40.70224, -73.982578], 89.3410441353, {
+                            color: '#fff7b9',
+                            fillColor: '#fff7b9',
+                            fillOpacity: 0.6
+                            });
+      circle_48.bindPopup("Front St & Gold St");
+      circle_48._popup.options.maxWidth = 300;
+      map.addLayer(circle_48)
+      
+      var circle_49 = L.circle([40.71911552, -74.00666661], 81.5492674779, {
+                            color: '#fedb7b',
+                            fillColor: '#fedb7b',
+                            fillOpacity: 0.6
+                            });
+      circle_49.bindPopup("Franklin St & W Broadway");
+      circle_49._popup.options.maxWidth = 300;
+      map.addLayer(circle_49)
+      
+      var circle_50 = L.circle([40.70717936, -74.00887308], 95.4700208147, {
+                            color: '#fee38b',
+                            fillColor: '#fee38b',
+                            fillOpacity: 0.6
+                            });
+      circle_50.bindPopup("William St & Pine St");
+      circle_50._popup.options.maxWidth = 300;
+      map.addLayer(circle_50)
+      
+      var circle_51 = L.circle([40.75149263, -73.97798848], 76.9782574068, {
+                            color: '#fece6a',
+                            fillColor: '#fece6a',
+                            fillOpacity: 0.6
+                            });
+      circle_51.bindPopup("Pershing Square S");
+      circle_51._popup.options.maxWidth = 300;
+      map.addLayer(circle_51)
+      
+      var circle_52 = L.circle([40.72110063, -73.9919254], 88.120355817, {
+                            color: '#fedb7b',
+                            fillColor: '#fedb7b',
+                            fillOpacity: 0.6
+                            });
+      circle_52.bindPopup("Rivington St & Chrystie St");
+      circle_52._popup.options.maxWidth = 300;
+      map.addLayer(circle_52)
+      
+      var circle_53 = L.circle([40.72743423, -73.99379025], 68.8050579076, {
+                            color: '#fd923e',
+                            fillColor: '#fd923e',
+                            fillOpacity: 0.6
+                            });
+      circle_53.bindPopup("Great Jones St");
+      circle_53._popup.options.maxWidth = 300;
+      map.addLayer(circle_53)
+      
+      var circle_54 = L.circle([40.71559509, -73.9870295], 86.8172171623, {
+                            color: '#fee085',
+                            fillColor: '#fee085',
+                            fillOpacity: 0.6
+                            });
+      circle_54.bindPopup("Clinton St & Grand St");
+      circle_54._popup.options.maxWidth = 300;
+      map.addLayer(circle_54)
+      
+      var circle_55 = L.circle([40.72217444, -73.98368779], 87.9683968798, {
+                            color: '#fec561',
+                            fillColor: '#fec561',
+                            fillOpacity: 0.6
+                            });
+      circle_55.bindPopup("E 2 St & Avenue B");
+      circle_55._popup.options.maxWidth = 300;
+      map.addLayer(circle_55)
+      
+      var circle_56 = L.circle([40.68223166, -73.9614583], 107.598695247, {
+                            color: '#fff8ba',
+                            fillColor: '#fff8ba',
+                            fillOpacity: 0.6
+                            });
+      circle_56.bindPopup("Fulton St & Grand Ave");
+      circle_56._popup.options.maxWidth = 300;
+      map.addLayer(circle_56)
+      
+      var circle_57 = L.circle([40.76009437, -73.99461843], 82.6182097385, {
+                            color: '#feaf4b',
+                            fillColor: '#feaf4b',
+                            fillOpacity: 0.6
+                            });
+      circle_57.bindPopup("W 43 St & 10 Ave");
+      circle_57._popup.options.maxWidth = 300;
+      map.addLayer(circle_57)
+      
+      var circle_58 = L.circle([40.76269882, -73.99301222], 84.0827002145, {
+                            color: '#fed774',
+                            fillColor: '#fed774',
+                            fillOpacity: 0.6
+                            });
+      circle_58.bindPopup("W 47 St & 10 Ave");
+      circle_58._popup.options.maxWidth = 300;
+      map.addLayer(circle_58)
+      
+      var circle_59 = L.circle([40.714215, -73.981346], 80.8581150832, {
+                            color: '#fedb7b',
+                            fillColor: '#fedb7b',
+                            fillOpacity: 0.6
+                            });
+      circle_59.bindPopup("Henry St & Grand St");
+      circle_59._popup.options.maxWidth = 300;
+      map.addLayer(circle_59)
+      
+      var circle_60 = L.circle([40.73454567, -73.99074142], 68.840072364, {
+                            color: '#e1191d',
+                            fillColor: '#e1191d',
+                            fillOpacity: 0.6
+                            });
+      circle_60.bindPopup("Broadway & E 14 St");
+      circle_60._popup.options.maxWidth = 300;
+      map.addLayer(circle_60)
+      
+      var circle_61 = L.circle([40.71625008, -74.0091059], 76.8580682857, {
+                            color: '#fede80',
+                            fillColor: '#fede80',
+                            fillOpacity: 0.6
+                            });
+      circle_61.bindPopup("Hudson St & Reade St");
+      circle_61._popup.options.maxWidth = 300;
+      map.addLayer(circle_61)
+      
+      var circle_62 = L.circle([40.76915505, -73.98191841], 147.915750223, {
+                            color: '#f74327',
+                            fillColor: '#f74327',
+                            fillOpacity: 0.6
+                            });
+      circle_62.bindPopup("Broadway & W 60 St");
+      circle_62._popup.options.maxWidth = 300;
+      map.addLayer(circle_62)
+      
+      var circle_63 = L.circle([40.69236178, -73.98631746], 77.5815322921, {
+                            color: '#ffe895',
+                            fillColor: '#ffe895',
+                            fillOpacity: 0.6
+                            });
+      circle_63.bindPopup("Lawrence St & Willoughby St");
+      circle_63._popup.options.maxWidth = 300;
+      map.addLayer(circle_63)
+      
+      var circle_64 = L.circle([40.680342423, -73.9557689392], 124.801921613, {
+                            color: '#fff8ba',
+                            fillColor: '#fff8ba',
+                            fillOpacity: 0.6
+                            });
+      circle_64.bindPopup("Lefferts Pl & Franklin Ave");
+      circle_64._popup.options.maxWidth = 300;
+      map.addLayer(circle_64)
+      
+      var circle_65 = L.circle([40.74345335, -74.00004031], 70.8103107685, {
+                            color: '#febf5a',
+                            fillColor: '#febf5a',
+                            fillOpacity: 0.6
+                            });
+      circle_65.bindPopup("W 20 St & 8 Ave");
+      circle_65._popup.options.maxWidth = 300;
+      map.addLayer(circle_65)
+      
+      var circle_66 = L.circle([40.73047309, -73.98672378], 75.8225798416, {
+                            color: '#fd9841',
+                            fillColor: '#fd9841',
+                            fillOpacity: 0.6
+                            });
+      circle_66.bindPopup("E 11 St & 2 Ave");
+      circle_66._popup.options.maxWidth = 300;
+      map.addLayer(circle_66)
+      
+      var circle_67 = L.circle([40.7500727, -73.99839279], 74.1999634265, {
+                            color: '#fed06c',
+                            fillColor: '#fed06c',
+                            fillOpacity: 0.6
+                            });
+      circle_67.bindPopup("W 29 St & 9 Ave");
+      circle_67._popup.options.maxWidth = 300;
+      map.addLayer(circle_67)
+      
+      var circle_68 = L.circle([40.739445, -73.976806], 72.3131608184, {
+                            color: '#feda78',
+                            fillColor: '#feda78',
+                            fillOpacity: 0.6
+                            });
+      circle_68.bindPopup("E 27 St & 1 Ave");
+      circle_68._popup.options.maxWidth = 300;
+      map.addLayer(circle_68)
+      
+      var circle_69 = L.circle([40.770513, -73.988038], 113.524206001, {
+                            color: '#fed673',
+                            fillColor: '#fed673',
+                            fillOpacity: 0.6
+                            });
+      circle_69.bindPopup("W 59 St & 10 Ave");
+      circle_69._popup.options.maxWidth = 300;
+      map.addLayer(circle_69)
+      
+      var circle_70 = L.circle([40.72456089, -73.99565293], 76.0798071482, {
+                            color: '#fd863a',
+                            fillColor: '#fd863a',
+                            fillOpacity: 0.6
+                            });
+      circle_70.bindPopup("Lafayette St & Jersey St");
+      circle_70._popup.options.maxWidth = 300;
+      map.addLayer(circle_70)
+      
+      var circle_71 = L.circle([40.72917025, -73.99810231], 74.1231893548, {
+                            color: '#fd9f44',
+                            fillColor: '#fd9f44',
+                            fillOpacity: 0.6
+                            });
+      circle_71.bindPopup("LaGuardia Pl & W 3 St");
+      circle_71._popup.options.maxWidth = 300;
+      map.addLayer(circle_71)
+      
+      var circle_72 = L.circle([40.73726186, -73.99238967], 70.5616771798, {
+                            color: '#fd9a42',
+                            fillColor: '#fd9a42',
+                            fillOpacity: 0.6
+                            });
+      circle_72.bindPopup("E 16 St & 5 Ave");
+      circle_72._popup.options.maxWidth = 300;
+      map.addLayer(circle_72)
+      
+      var circle_73 = L.circle([40.71117444, -73.99682619], 86.4222562799, {
+                            color: '#ffea99',
+                            fillColor: '#ffea99',
+                            fillOpacity: 0.6
+                            });
+      circle_73.bindPopup("Catherine St & Monroe St");
+      circle_73._popup.options.maxWidth = 300;
+      map.addLayer(circle_73)
+      
+      var circle_74 = L.circle([40.76019252, -73.9912551], 81.8660963778, {
+                            color: '#feac49',
+                            fillColor: '#feac49',
+                            fillOpacity: 0.6
+                            });
+      circle_74.bindPopup("9 Ave & W 45 St");
+      circle_74._popup.options.maxWidth = 300;
+      map.addLayer(circle_74)
+      
+      var circle_75 = L.circle([40.76727216, -73.99392888], 109.79229349, {
+                            color: '#fecf6b',
+                            fillColor: '#fecf6b',
+                            fillOpacity: 0.6
+                            });
+      circle_75.bindPopup("W 52 St & 11 Ave");
+      circle_75._popup.options.maxWidth = 300;
+      map.addLayer(circle_75)
+      
+      var circle_76 = L.circle([40.69331716, -73.95381995], 120.670327103, {
+                            color: '#fff8bb',
+                            fillColor: '#fff8bb',
+                            fillOpacity: 0.6
+                            });
+      circle_76.bindPopup("Willoughby Ave & Walworth St");
+      circle_76._popup.options.maxWidth = 300;
+      map.addLayer(circle_76)
+      
+      var circle_77 = L.circle([40.71450451, -74.00562789], 88.7061194597, {
+                            color: '#fee084',
+                            fillColor: '#fee084',
+                            fillOpacity: 0.6
+                            });
+      circle_77.bindPopup("Reade St & Broadway");
+      circle_77._popup.options.maxWidth = 300;
+      map.addLayer(circle_77)
+      
+      var circle_78 = L.circle([40.72938685, -73.97772429], 84.745488396, {
+                            color: '#feb852',
+                            fillColor: '#feb852',
+                            fillOpacity: 0.6
+                            });
+      circle_78.bindPopup("E 14 St & Avenue B");
+      circle_78._popup.options.maxWidth = 300;
+      map.addLayer(circle_78)
+      
+      var circle_79 = L.circle([40.76461837, -73.98789473], 81.4502018584, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_79.bindPopup("W 52 St & 9 Ave");
+      circle_79._popup.options.maxWidth = 300;
+      map.addLayer(circle_79)
+      
+      var circle_80 = L.circle([40.73224119, -74.00026394], 75.5468099247, {
+                            color: '#fed774',
+                            fillColor: '#fed774',
+                            fillOpacity: 0.6
+                            });
+      circle_80.bindPopup("Washington Pl & 6 Ave");
+      circle_80._popup.options.maxWidth = 300;
+      map.addLayer(circle_80)
+      
+      var circle_81 = L.circle([40.75797322, -73.96603308], 91.7900209644, {
+                            color: '#ffe895',
+                            fillColor: '#ffe895',
+                            fillOpacity: 0.6
+                            });
+      circle_81.bindPopup("E 55 St & 2 Ave");
+      circle_81._popup.options.maxWidth = 300;
+      map.addLayer(circle_81)
+      
+      var circle_82 = L.circle([40.751551, -73.993934], 75.5464898844, {
+                            color: '#fc6330',
+                            fillColor: '#fc6330',
+                            fillOpacity: 0.6
+                            });
+      circle_82.bindPopup("8 Ave & W 33 St");
+      circle_82._popup.options.maxWidth = 300;
+      map.addLayer(circle_82)
+      
+      var circle_83 = L.circle([40.70530954, -74.00612572], 106.743085931, {
+                            color: '#fee288',
+                            fillColor: '#fee288',
+                            fillOpacity: 0.6
+                            });
+      circle_83.bindPopup("Front St & Maiden Ln");
+      circle_83._popup.options.maxWidth = 300;
+      map.addLayer(circle_83)
+      
+      var circle_84 = L.circle([40.72490985, -74.00154702], 90.5347640727, {
+                            color: '#fd9f44',
+                            fillColor: '#fd9f44',
+                            fillOpacity: 0.6
+                            });
+      circle_84.bindPopup("W Broadway & Spring St");
+      circle_84._popup.options.maxWidth = 300;
+      map.addLayer(circle_84)
+      
+      var circle_85 = L.circle([40.72679454, -73.99695094], 72.9234993404, {
+                            color: '#fd903d',
+                            fillColor: '#fd903d',
+                            fillOpacity: 0.6
+                            });
+      circle_85.bindPopup("Mercer St & Bleecker St");
+      circle_85._popup.options.maxWidth = 300;
+      map.addLayer(circle_85)
+      
+      var circle_86 = L.circle([40.7423543, -73.98915076], 80.0035147712, {
+                            color: '#f54026',
+                            fillColor: '#f54026',
+                            fillOpacity: 0.6
+                            });
+      circle_86.bindPopup("Broadway & W 24 St");
+      circle_86._popup.options.maxWidth = 300;
+      map.addLayer(circle_86)
+      
+      var circle_87 = L.circle([40.74177603, -74.00149746], 66.1434666609, {
+                            color: '#fd7c37',
+                            fillColor: '#fd7c37',
+                            fillOpacity: 0.6
+                            });
+      circle_87.bindPopup("W 17 St & 8 Ave");
+      circle_87._popup.options.maxWidth = 300;
+      map.addLayer(circle_87)
+      
+      var circle_88 = L.circle([40.73624527, -73.98473765], 75.1298042673, {
+                            color: '#fec15d',
+                            fillColor: '#fec15d',
+                            fillOpacity: 0.6
+                            });
+      circle_88.bindPopup("E 19 St & 3 Ave");
+      circle_88._popup.options.maxWidth = 300;
+      map.addLayer(circle_88)
+      
+      var circle_89 = L.circle([40.69610226, -73.96751037], 95.8954320518, {
+                            color: '#fff3af',
+                            fillColor: '#fff3af',
+                            fillOpacity: 0.6
+                            });
+      circle_89.bindPopup("Washington Ave & Park Ave");
+      circle_89._popup.options.maxWidth = 300;
+      map.addLayer(circle_89)
+      
+      var circle_90 = L.circle([40.69788349, -73.97350332], 99.0417076897, {
+                            color: '#fff7b7',
+                            fillColor: '#fff7b7',
+                            fillOpacity: 0.6
+                            });
+      circle_90.bindPopup("Flushing Ave & Carlton Ave");
+      circle_90._popup.options.maxWidth = 300;
+      map.addLayer(circle_90)
+      
+      var circle_91 = L.circle([40.71893904, -73.99266288], 82.4563944242, {
+                            color: '#feb44e',
+                            fillColor: '#feb44e',
+                            fillOpacity: 0.6
+                            });
+      circle_91.bindPopup("Forsyth St & Broome St");
+      circle_91._popup.options.maxWidth = 300;
+      map.addLayer(circle_91)
+      
+      var circle_92 = L.circle([40.70281858, -73.98765762], 94.7224771553, {
+                            color: '#fff0a7',
+                            fillColor: '#fff0a7',
+                            fillOpacity: 0.6
+                            });
+      circle_92.bindPopup("Pearl St & Anchorage Pl");
+      circle_92._popup.options.maxWidth = 300;
+      map.addLayer(circle_92)
+      
+      var circle_93 = L.circle([40.73652889, -74.00618026], 81.3550651126, {
+                            color: '#fec45f',
+                            fillColor: '#fec45f',
+                            fillOpacity: 0.6
+                            });
+      circle_93.bindPopup("Bank St & Hudson St");
+      circle_93._popup.options.maxWidth = 300;
+      map.addLayer(circle_93)
+      
+      var circle_94 = L.circle([40.72299208, -73.97995466], 96.9771072381, {
+                            color: '#ffe48d',
+                            fillColor: '#ffe48d',
+                            fillOpacity: 0.6
+                            });
+      circle_94.bindPopup("E 5 St & Avenue C");
+      circle_94._popup.options.maxWidth = 300;
+      map.addLayer(circle_94)
+      
+      var circle_95 = L.circle([40.74691959, -74.00451887], 81.1294014863, {
+                            color: '#fd7234',
+                            fillColor: '#fd7234',
+                            fillOpacity: 0.6
+                            });
+      circle_95.bindPopup("W 22 St & 10 Ave");
+      circle_95._popup.options.maxWidth = 300;
+      map.addLayer(circle_95)
+      
+      var circle_96 = L.circle([40.73221853, -73.98165557], 71.926108457, {
+                            color: '#fd7234',
+                            fillColor: '#fd7234',
+                            fillOpacity: 0.6
+                            });
+      circle_96.bindPopup("1 Ave & E 15 St");
+      circle_96._popup.options.maxWidth = 300;
+      map.addLayer(circle_96)
+      
+      var circle_97 = L.circle([40.75066386, -74.00176802], 70.6234564934, {
+                            color: '#febf5a',
+                            fillColor: '#febf5a',
+                            fillOpacity: 0.6
+                            });
+      circle_97.bindPopup("10 Ave & W 28 St");
+      circle_97._popup.options.maxWidth = 300;
+      map.addLayer(circle_97)
+      
+      var circle_98 = L.circle([40.73587678, -73.98205027], 74.3498709414, {
+                            color: '#fea446',
+                            fillColor: '#fea446',
+                            fillOpacity: 0.6
+                            });
+      circle_98.bindPopup("E 20 St & 2 Ave");
+      circle_98._popup.options.maxWidth = 300;
+      map.addLayer(circle_98)
+      
+      var circle_99 = L.circle([40.768254, -73.988639], 90.3848373376, {
+                            color: '#fee289',
+                            fillColor: '#fee289',
+                            fillOpacity: 0.6
+                            });
+      circle_99.bindPopup("W 56 St & 10 Ave");
+      circle_99._popup.options.maxWidth = 300;
+      map.addLayer(circle_99)
+      
+      var circle_100 = L.circle([40.7643971, -73.97371465], 160.447719256, {
+                            color: '#fd933f',
+                            fillColor: '#fd933f',
+                            fillOpacity: 0.6
+                            });
+      circle_100.bindPopup("Grand Army Plaza & Central Park S");
+      circle_100._popup.options.maxWidth = 300;
+      map.addLayer(circle_100)
+      
+      var circle_101 = L.circle([40.7381765, -73.97738662], 75.5507129626, {
+                            color: '#fed572',
+                            fillColor: '#fed572',
+                            fillOpacity: 0.6
+                            });
+      circle_101.bindPopup("E 25 St & 1 Ave");
+      circle_101._popup.options.maxWidth = 300;
+      map.addLayer(circle_101)
+      
+      var circle_102 = L.circle([40.72903917, -73.99404649], 66.0440592939, {
+                            color: '#fec965',
+                            fillColor: '#fec965',
+                            fillOpacity: 0.6
+                            });
+      circle_102.bindPopup("Washington Pl & Broadway");
+      circle_102._popup.options.maxWidth = 300;
+      map.addLayer(circle_102)
+      
+      var circle_103 = L.circle([40.74394314, -73.97966069], 73.2071192437, {
+                            color: '#feac49',
+                            fillColor: '#feac49',
+                            fillOpacity: 0.6
+                            });
+      circle_103.bindPopup("E 31 St & 3 Ave");
+      circle_103._popup.options.maxWidth = 300;
+      map.addLayer(circle_103)
+      
+      var circle_104 = L.circle([40.75044999, -73.99481051], 77.1614450576, {
+                            color: '#970026',
+                            fillColor: '#970026',
+                            fillOpacity: 0.6
+                            });
+      circle_104.bindPopup("8 Ave & W 31 St");
+      circle_104._popup.options.maxWidth = 300;
+      map.addLayer(circle_104)
+      
+      var circle_105 = L.circle([40.73331967, -73.99510132], 70.5158846102, {
+                            color: '#febd57',
+                            fillColor: '#febd57',
+                            fillOpacity: 0.6
+                            });
+      circle_105.bindPopup("E 10 St & 5 Ave");
+      circle_105._popup.options.maxWidth = 300;
+      map.addLayer(circle_105)
+      
+      var circle_106 = L.circle([40.75527307, -73.98316936], 81.8398381295, {
+                            color: '#fff9be',
+                            fillColor: '#fff9be',
+                            fillOpacity: 0.6
+                            });
+      circle_106.bindPopup("W 43 St & 6 Ave");
+      circle_106._popup.options.maxWidth = 300;
+      map.addLayer(circle_106)
+      
+      var circle_107 = L.circle([40.75929124, -73.98859651], 83.9616946104, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_107.bindPopup("W 45 St & 8 Ave");
+      circle_107._popup.options.maxWidth = 300;
+      map.addLayer(circle_107)
+      
+      var circle_108 = L.circle([40.72953837, -73.98426726], 75.6162558169, {
+                            color: '#feb54f',
+                            fillColor: '#feb54f',
+                            fillOpacity: 0.6
+                            });
+      circle_108.bindPopup("E 11 St & 1 Ave");
+      circle_108._popup.options.maxWidth = 300;
+      map.addLayer(circle_108)
+      
+      var circle_109 = L.circle([40.73291553, -74.00711384], 86.2777700783, {
+                            color: '#f33b25',
+                            fillColor: '#f33b25',
+                            fillOpacity: 0.6
+                            });
+      circle_109.bindPopup("Christopher St & Greenwich St");
+      circle_109._popup.options.maxWidth = 300;
+      map.addLayer(circle_109)
+      
+      var circle_110 = L.circle([40.72521311, -73.97768752], 80.6438619569, {
+                            color: '#fecb67',
+                            fillColor: '#fecb67',
+                            fillOpacity: 0.6
+                            });
+      circle_110.bindPopup("E 9 St & Avenue C");
+      circle_110._popup.options.maxWidth = 300;
+      map.addLayer(circle_110)
+      
+      var circle_111 = L.circle([40.728145, -73.990214], 66.2156829023, {
+                            color: '#feb953',
+                            fillColor: '#feb953',
+                            fillOpacity: 0.6
+                            });
+      circle_111.bindPopup("Shevchenko Pl & E 6 St");
+      circle_111._popup.options.maxWidth = 300;
+      map.addLayer(circle_111)
+      
+      var circle_112 = L.circle([40.73047747, -73.99906065], 75.0127286028, {
+                            color: '#feb651',
+                            fillColor: '#feb651',
+                            fillOpacity: 0.6
+                            });
+      circle_112.bindPopup("Sullivan St & Washington Sq");
+      circle_112._popup.options.maxWidth = 300;
+      map.addLayer(circle_112)
+      
+      var circle_113 = L.circle([40.72955361, -73.98057249], 80.1154418238, {
+                            color: '#feb04b',
+                            fillColor: '#feb04b',
+                            fillOpacity: 0.6
+                            });
+      circle_113.bindPopup("E 13 St & Avenue A");
+      circle_113._popup.options.maxWidth = 300;
+      map.addLayer(circle_113)
+      
+      var circle_114 = L.circle([40.713126, -73.984844], 88.2977127105, {
+                            color: '#ffea99',
+                            fillColor: '#ffea99',
+                            fillOpacity: 0.6
+                            });
+      circle_114.bindPopup("Madison St & Montgomery St");
+      circle_114._popup.options.maxWidth = 300;
+      map.addLayer(circle_114)
+      
+      var circle_115 = L.circle([40.71291224, -74.01020234], 80.596668188, {
+                            color: '#fea145',
+                            fillColor: '#fea145',
+                            fillOpacity: 0.6
+                            });
+      circle_115.bindPopup("Barclay St & Church St");
+      circle_115._popup.options.maxWidth = 300;
+      map.addLayer(circle_115)
+      
+      var circle_116 = L.circle([40.7575699, -73.99098507], 84.3250653284, {
+                            color: '#feae4a',
+                            fillColor: '#feae4a',
+                            fillOpacity: 0.6
+                            });
+      circle_116.bindPopup("W 42 St & 8 Ave");
+      circle_116._popup.options.maxWidth = 300;
+      map.addLayer(circle_116)
+      
+      var circle_117 = L.circle([40.75188406, -73.97770164], 81.3181941474, {
+                            color: '#b20026',
+                            fillColor: '#b20026',
+                            fillOpacity: 0.6
+                            });
+      circle_117.bindPopup("Pershing Square N");
+      circle_117._popup.options.maxWidth = 300;
+      map.addLayer(circle_117)
+      
+      var circle_118 = L.circle([40.74238787, -73.99726235], 66.7444793258, {
+                            color: '#fea848',
+                            fillColor: '#fea848',
+                            fillOpacity: 0.6
+                            });
+      circle_118.bindPopup("W 20 St & 7 Ave");
+      circle_118._popup.options.maxWidth = 300;
+      map.addLayer(circle_118)
+      
+      var circle_119 = L.circle([40.752062307, -73.9816324043], 81.49107132, {
+                            color: '#feb24c',
+                            fillColor: '#feb24c',
+                            fillOpacity: 0.6
+                            });
+      circle_119.bindPopup("E 40 St & 5 Ave");
+      circle_119._popup.options.maxWidth = 300;
+      map.addLayer(circle_119)
+      
+      var circle_120 = L.circle([40.69239502, -73.99337909], 104.738060694, {
+                            color: '#fff3ae',
+                            fillColor: '#fff3ae',
+                            fillOpacity: 0.6
+                            });
+      circle_120.bindPopup("Clinton St & Joralemon St");
+      circle_120._popup.options.maxWidth = 300;
+      map.addLayer(circle_120)
+      
+      var circle_121 = L.circle([40.70706456, -74.00731853], 81.66063797, {
+                            color: '#fede80',
+                            fillColor: '#fede80',
+                            fillOpacity: 0.6
+                            });
+      circle_121.bindPopup("Maiden Ln & Pearl St");
+      circle_121._popup.options.maxWidth = 300;
+      map.addLayer(circle_121)
+      
+      var circle_122 = L.circle([40.7158155, -73.99422366], 100.921781493, {
+                            color: '#fedd7e',
+                            fillColor: '#fedd7e',
+                            fillOpacity: 0.6
+                            });
+      circle_122.bindPopup("Forsyth St & Canal St");
+      circle_122._popup.options.maxWidth = 300;
+      map.addLayer(circle_122)
+      
+      var circle_123 = L.circle([40.75323098, -73.97032517], 76.7021471347, {
+                            color: '#fedc7c',
+                            fillColor: '#fedc7c',
+                            fillOpacity: 0.6
+                            });
+      circle_123.bindPopup("E 47 St & 2 Ave");
+      circle_123._popup.options.maxWidth = 300;
+      map.addLayer(circle_123)
+      
+      var circle_124 = L.circle([40.75645824, -73.99372222], 77.4716466941, {
+                            color: '#fd8c3c',
+                            fillColor: '#fd8c3c',
+                            fillOpacity: 0.6
+                            });
+      circle_124.bindPopup("W 39 St & 9 Ave");
+      circle_124._popup.options.maxWidth = 300;
+      map.addLayer(circle_124)
+      
+      var circle_125 = L.circle([40.73049393, -73.9957214], 70.8314421368, {
+                            color: '#fea044',
+                            fillColor: '#fea044',
+                            fillOpacity: 0.6
+                            });
+      circle_125.bindPopup("Washington Square E");
+      circle_125._popup.options.maxWidth = 300;
+      map.addLayer(circle_125)
+      
+      var circle_126 = L.circle([40.76669671, -73.99061728], 72.6188919369, {
+                            color: '#fed976',
+                            fillColor: '#fed976',
+                            fillOpacity: 0.6
+                            });
+      circle_126.bindPopup("W 53 St & 10 Ave");
+      circle_126._popup.options.maxWidth = 300;
+      map.addLayer(circle_126)
+      
+      var circle_127 = L.circle([40.75097711, -73.98765428], 75.9878362573, {
+                            color: '#fedf83',
+                            fillColor: '#fedf83',
+                            fillOpacity: 0.6
+                            });
+      circle_127.bindPopup("Broadway & W 36 St");
+      circle_127._popup.options.maxWidth = 300;
+      map.addLayer(circle_127)
+      
+      var circle_128 = L.circle([40.71542197, -74.01121978], 83.8578824086, {
+                            color: '#fd903d',
+                            fillColor: '#fd903d',
+                            fillOpacity: 0.6
+                            });
+      circle_128.bindPopup("Greenwich St & Warren St");
+      circle_128._popup.options.maxWidth = 300;
+      map.addLayer(circle_128)
+      
+      var circle_129 = L.circle([40.756014, -73.967416], 79.7446121946, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_129.bindPopup("E 52 St & 2 Ave");
+      circle_129._popup.options.maxWidth = 300;
+      map.addLayer(circle_129)
+      
+      var circle_130 = L.circle([40.71427487, -73.98990025], 74.5288291276, {
+                            color: '#febb56',
+                            fillColor: '#febb56',
+                            fillOpacity: 0.6
+                            });
+      circle_130.bindPopup("Canal St & Rutgers St");
+      circle_130._popup.options.maxWidth = 300;
+      map.addLayer(circle_130)
+      
+      var circle_131 = L.circle([40.72229346, -73.99147535], 82.7067136512, {
+                            color: '#fec662',
+                            fillColor: '#fec662',
+                            fillOpacity: 0.6
+                            });
+      circle_131.bindPopup("Stanton St & Chrystie St");
+      circle_131._popup.options.maxWidth = 300;
+      map.addLayer(circle_131)
+      
+      var circle_132 = L.circle([40.73827428, -73.98751968], 66.5098182366, {
+                            color: '#fec965',
+                            fillColor: '#fec965',
+                            fillOpacity: 0.6
+                            });
+      circle_132.bindPopup("E 20 St & Park Ave");
+      circle_132._popup.options.maxWidth = 300;
+      map.addLayer(circle_132)
+      
+      var circle_133 = L.circle([40.711512, -74.015756], 104.355371365, {
+                            color: '#fd8439',
+                            fillColor: '#fd8439',
+                            fillOpacity: 0.6
+                            });
+      circle_133.bindPopup("South End Ave & Liberty St");
+      circle_133._popup.options.maxWidth = 300;
+      map.addLayer(circle_133)
+      
+      var circle_134 = L.circle([40.72368361, -73.97574813], 98.2745167971, {
+                            color: '#fff2ac',
+                            fillColor: '#fff2ac',
+                            fillOpacity: 0.6
+                            });
+      circle_134.bindPopup("Avenue D & E 8 St");
+      circle_134._popup.options.maxWidth = 300;
+      map.addLayer(circle_134)
+      
+      var circle_135 = L.circle([40.73028666, -73.9907647], 66.0063977912, {
+                            color: '#880026',
+                            fillColor: '#880026',
+                            fillOpacity: 0.6
+                            });
+      circle_135.bindPopup("Lafayette St & E 8 St");
+      circle_135._popup.options.maxWidth = 300;
+      map.addLayer(circle_135)
+      
+      var circle_136 = L.circle([40.71602118, -73.99974372], 83.9968234575, {
+                            color: '#fed06c',
+                            fillColor: '#fed06c',
+                            fillOpacity: 0.6
+                            });
+      circle_136.bindPopup("Bayard St & Baxter St");
+      circle_136._popup.options.maxWidth = 300;
+      map.addLayer(circle_136)
+      
+      var circle_137 = L.circle([40.722055, -73.989111], 81.669418239, {
+                            color: '#fea747',
+                            fillColor: '#fea747',
+                            fillOpacity: 0.6
+                            });
+      circle_137.bindPopup("Allen St & E Houston St");
+      circle_137._popup.options.maxWidth = 300;
+      map.addLayer(circle_137)
+      
+      var circle_138 = L.circle([40.69196035, -73.96536851], 82.3500568343, {
+                            color: '#fff5b3',
+                            fillColor: '#fff5b3',
+                            fillOpacity: 0.6
+                            });
+      circle_138.bindPopup("Willoughby Ave & Hall St");
+      circle_138._popup.options.maxWidth = 300;
+      map.addLayer(circle_138)
+      
+      var circle_139 = L.circle([40.73532427, -73.99800419], 67.917932661, {
+                            color: '#ffec9d',
+                            fillColor: '#ffec9d',
+                            fillOpacity: 0.6
+                            });
+      circle_139.bindPopup("W 11 St & 6 Ave");
+      circle_139._popup.options.maxWidth = 300;
+      map.addLayer(circle_139)
+      
+      var circle_140 = L.circle([40.73038599, -74.00214988], 80.2851696209, {
+                            color: '#f84528',
+                            fillColor: '#f84528',
+                            fillOpacity: 0.6
+                            });
+      circle_140.bindPopup("Carmine St & 6 Ave");
+      circle_140._popup.options.maxWidth = 300;
+      map.addLayer(circle_140)
+      
+      var circle_141 = L.circle([40.68382604, -73.97632328], 131.565807786, {
+                            color: '#ffefa4',
+                            fillColor: '#ffefa4',
+                            fillOpacity: 0.6
+                            });
+      circle_141.bindPopup("Atlantic Ave & Fort Greene Pl");
+      circle_141._popup.options.maxWidth = 300;
+      map.addLayer(circle_141)
+      
+      var circle_142 = L.circle([40.74734825, -73.99723551], 73.5651099049, {
+                            color: '#fea245',
+                            fillColor: '#fea245',
+                            fillOpacity: 0.6
+                            });
+      circle_142.bindPopup("W 26 St & 8 Ave");
+      circle_142._popup.options.maxWidth = 300;
+      map.addLayer(circle_142)
+      
+      var circle_143 = L.circle([40.7403432, -73.98955109], 71.6505101286, {
+                            color: '#eb2b21',
+                            fillColor: '#eb2b21',
+                            fillOpacity: 0.6
+                            });
+      circle_143.bindPopup("Broadway & E 22 St");
+      circle_143._popup.options.maxWidth = 300;
+      map.addLayer(circle_143)
+      
+      var circle_144 = L.circle([40.73935542, -73.99931783], 66.5536989544, {
+                            color: '#fea848',
+                            fillColor: '#fea848',
+                            fillOpacity: 0.6
+                            });
+      circle_144.bindPopup("W 15 St & 7 Ave");
+      circle_144._popup.options.maxWidth = 300;
+      map.addLayer(circle_144)
+      
+      var circle_145 = L.circle([40.72580614, -73.97422494], 111.576929277, {
+                            color: '#fff8bb',
+                            fillColor: '#fff8bb',
+                            fillOpacity: 0.6
+                            });
+      circle_145.bindPopup("Avenue D & E 12 St");
+      circle_145._popup.options.maxWidth = 300;
+      map.addLayer(circle_145)
+      
+      var circle_146 = L.circle([40.73223272, -73.98889957], 64.9699908913, {
+                            color: '#fd9e43',
+                            fillColor: '#fd9e43',
+                            fillOpacity: 0.6
+                            });
+      circle_146.bindPopup("E 12 St & 3 Ave");
+      circle_146._popup.options.maxWidth = 300;
+      map.addLayer(circle_146)
+      
+      var circle_147 = L.circle([40.74475148, -73.99915362], 70.9346042271, {
+                            color: '#fd9d43',
+                            fillColor: '#fd9d43',
+                            fillOpacity: 0.6
+                            });
+      circle_147.bindPopup("W 22 St & 8 Ave");
+      circle_147._popup.options.maxWidth = 300;
+      map.addLayer(circle_147)
+      
+      var circle_148 = L.circle([40.746647, -73.993915], 71.6726302125, {
+                            color: '#fea044',
+                            fillColor: '#fea044',
+                            fillOpacity: 0.6
+                            });
+      circle_148.bindPopup("W 27 St & 7 Ave");
+      circle_148._popup.options.maxWidth = 300;
+      map.addLayer(circle_148)
+      
+      var circle_149 = L.circle([40.74025878, -73.98409214], 67.5284157586, {
+                            color: '#fd923e',
+                            fillColor: '#fd923e',
+                            fillOpacity: 0.6
+                            });
+      circle_149.bindPopup("Lexington Ave & E 24 St");
+      circle_149._popup.options.maxWidth = 300;
+      map.addLayer(circle_149)
+      
+      var circle_150 = L.circle([40.6851443, -73.95380904], 98.9921202275, {
+                            color: '#fff8bb',
+                            fillColor: '#fff8bb',
+                            fillOpacity: 0.6
+                            });
+      circle_150.bindPopup("Monroe St & Bedford Ave");
+      circle_150._popup.options.maxWidth = 300;
+      map.addLayer(circle_150)
+      
+      var circle_151 = L.circle([40.7546011026, -73.971878855], 74.9984459364, {
+                            color: '#fedb7a',
+                            fillColor: '#fedb7a',
+                            fillOpacity: 0.6
+                            });
+      circle_151.bindPopup("E 48 St & 3 Ave");
+      circle_151._popup.options.maxWidth = 300;
+      map.addLayer(circle_151)
+      
+      var circle_152 = L.circle([40.761628, -73.972924], 88.2652777067, {
+                            color: '#fede80',
+                            fillColor: '#fede80',
+                            fillOpacity: 0.6
+                            });
+      circle_152.bindPopup("E 56 St & Madison Ave");
+      circle_152._popup.options.maxWidth = 300;
+      map.addLayer(circle_152)
+      
+      var circle_153 = L.circle([40.70827295, -73.96834101], 115.081423715, {
+                            color: '#fff8bb',
+                            fillColor: '#fff8bb',
+                            fillOpacity: 0.6
+                            });
+      circle_153.bindPopup("Kent Ave & S 11 St");
+      circle_153._popup.options.maxWidth = 300;
+      map.addLayer(circle_153)
+      
+      var circle_154 = L.circle([40.739323, -74.008119], 92.1389113192, {
+                            color: '#fea948',
+                            fillColor: '#fea948',
+                            fillOpacity: 0.6
+                            });
+      circle_154.bindPopup("Washington St & Gansevoort St");
+      circle_154._popup.options.maxWidth = 300;
+      map.addLayer(circle_154)
+      
+      var circle_155 = L.circle([40.73781509, -73.99994661], 65.922378738, {
+                            color: '#febe59',
+                            fillColor: '#febe59',
+                            fillOpacity: 0.6
+                            });
+      circle_155.bindPopup("W 13 St & 7 Ave");
+      circle_155._popup.options.maxWidth = 300;
+      map.addLayer(circle_155)
+      
+      var circle_156 = L.circle([40.75206862, -73.96784384], 83.4118038103, {
+                            color: '#ffec9d',
+                            fillColor: '#ffec9d',
+                            fillOpacity: 0.6
+                            });
+      circle_156.bindPopup("E 47 St & 1 Ave");
+      circle_156._popup.options.maxWidth = 300;
+      map.addLayer(circle_156)
+      
+      var circle_157 = L.circle([40.72621788, -73.98379855], 81.2210433512, {
+                            color: '#fd9941',
+                            fillColor: '#fd9941',
+                            fillOpacity: 0.6
+                            });
+      circle_157.bindPopup("E 7 St & Avenue A");
+      circle_157._popup.options.maxWidth = 300;
+      map.addLayer(circle_157)
+      
+      var circle_158 = L.circle([40.7457121, -73.98194829], 69.0307070853, {
+                            color: '#fd933f',
+                            fillColor: '#fd933f',
+                            fillOpacity: 0.6
+                            });
+      circle_158.bindPopup("E 32 St & Park Ave");
+      circle_158._popup.options.maxWidth = 300;
+      map.addLayer(circle_158)
+      
+      var circle_159 = L.circle([40.73543934, -73.99453948], 77.4330628803, {
+                            color: '#ffffcc',
+                            fillColor: '#ffffcc',
+                            fillOpacity: 0.6
+                            });
+      circle_159.bindPopup("W 13 St & 5 Ave");
+      circle_159._popup.options.maxWidth = 300;
+      map.addLayer(circle_159)
+      
+      var circle_160 = L.circle([40.73649403, -73.99704374], 69.4910940815, {
+                            color: '#fd7a37',
+                            fillColor: '#fd7a37',
+                            fillOpacity: 0.6
+                            });
+      circle_160.bindPopup("W 13 St & 6 Ave");
+      circle_160._popup.options.maxWidth = 300;
+      map.addLayer(circle_160)
+      
+      var circle_161 = L.circle([40.68528172, -73.97805813], 80.8197640295, {
+                            color: '#ffe48c',
+                            fillColor: '#ffe48c',
+                            fillOpacity: 0.6
+                            });
+      circle_161.bindPopup("Ashland Pl & Hanson Pl");
+      circle_161._popup.options.maxWidth = 300;
+      map.addLayer(circle_161)
+      
+      var circle_162 = L.circle([40.71413089, -73.9970468], 79.7416554925, {
+                            color: '#fede80',
+                            fillColor: '#fede80',
+                            fillOpacity: 0.6
+                            });
+      circle_162.bindPopup("Division St & Bowery");
+      circle_162._popup.options.maxWidth = 300;
+      map.addLayer(circle_162)
+      
+      var circle_163 = L.circle([40.74290902, -73.97706058], 68.2211291685, {
+                            color: '#fc6631',
+                            fillColor: '#fc6631',
+                            fillOpacity: 0.6
+                            });
+      circle_163.bindPopup("2 Ave & E 31 St");
+      circle_163._popup.options.maxWidth = 300;
+      map.addLayer(circle_163)
+      
+      var circle_164 = L.circle([40.73226398, -73.99852205], 71.2000744817, {
+                            color: '#fed16e',
+                            fillColor: '#fed16e',
+                            fillOpacity: 0.6
+                            });
+      circle_164.bindPopup("MacDougal St & Washington Sq");
+      circle_164._popup.options.maxWidth = 300;
+      map.addLayer(circle_164)
+      
+      var circle_165 = L.circle([40.71622644, -73.98261206], 89.0140644942, {
+                            color: '#ffeda0',
+                            fillColor: '#ffeda0',
+                            fillOpacity: 0.6
+                            });
+      circle_165.bindPopup("Bialystoker Pl & Delancey St");
+      circle_165._popup.options.maxWidth = 300;
+      map.addLayer(circle_165)
+      
+      var circle_166 = L.circle([40.76030096, -73.99884222], 86.745267007, {
+                            color: '#febf5a',
+                            fillColor: '#febf5a',
+                            fillOpacity: 0.6
+                            });
+      circle_166.bindPopup("11 Ave & W 41 St");
+      circle_166._popup.options.maxWidth = 300;
+      map.addLayer(circle_166)
+      
+      var circle_167 = L.circle([40.734232, -73.986923], 68.7183112207, {
+                            color: '#febb56',
+                            fillColor: '#febb56',
+                            fillOpacity: 0.6
+                            });
+      circle_167.bindPopup("E 15 St & 3 Ave");
+      circle_167._popup.options.maxWidth = 300;
+      map.addLayer(circle_167)
+      
+      var circle_168 = L.circle([40.76227205, -73.98788205], 80.4135630612, {
+                            color: '#feb44e',
+                            fillColor: '#feb44e',
+                            fillOpacity: 0.6
+                            });
+      circle_168.bindPopup("W 49 St & 8 Ave");
+      circle_168._popup.options.maxWidth = 300;
+      map.addLayer(circle_168)
+      
+      var circle_169 = L.circle([40.71146364, -74.00552427], 90.8554729843, {
+                            color: '#fee187',
+                            fillColor: '#fee187',
+                            fillOpacity: 0.6
+                            });
+      circle_169.bindPopup("Spruce St & Nassau St");
+      circle_169._popup.options.maxWidth = 300;
+      map.addLayer(circle_169)
+      
+      var circle_170 = L.circle([40.74315566, -73.97434726], 71.5686219432, {
+                            color: '#fee085',
+                            fillColor: '#fee085',
+                            fillOpacity: 0.6
+                            });
+      circle_170.bindPopup("E 33 St & 1 Ave");
+      circle_170._popup.options.maxWidth = 300;
+      map.addLayer(circle_170)
+      
+      var circle_171 = L.circle([40.68753406, -73.97265183], 77.5596979232, {
+                            color: '#fff3af',
+                            fillColor: '#fff3af',
+                            fillOpacity: 0.6
+                            });
+      circle_171.bindPopup("Cumberland St & Lafayette Ave");
+      circle_171._popup.options.maxWidth = 300;
+      map.addLayer(circle_171)
+      
+      var circle_172 = L.circle([40.72243797, -74.00566443], 92.8230078198, {
+                            color: '#feda78',
+                            fillColor: '#feda78',
+                            fillOpacity: 0.6
+                            });
+      circle_172.bindPopup("6 Ave & Canal St");
+      circle_172._popup.options.maxWidth = 300;
+      map.addLayer(circle_172)
+      
+      var circle_173 = L.circle([40.75001986, -73.96905301], 89.3424699863, {
+                            color: '#fedd7f',
+                            fillColor: '#fedd7f',
+                            fillOpacity: 0.6
+                            });
+      circle_173.bindPopup("1 Ave & E 44 St");
+      circle_173._popup.options.maxWidth = 300;
+      map.addLayer(circle_173)
+      
+      var circle_174 = L.circle([40.75299641, -73.98721619], 84.7095905663, {
+                            color: '#fedd7f',
+                            fillColor: '#fedd7f',
+                            fillOpacity: 0.6
+                            });
+      circle_174.bindPopup("Broadway & W 39 St");
+      circle_174._popup.options.maxWidth = 300;
+      map.addLayer(circle_174)
+      
+      var circle_175 = L.circle([40.68539567, -73.97431458], 87.5322801474, {
+                            color: '#fff7b9',
+                            fillColor: '#fff7b9',
+                            fillOpacity: 0.6
+                            });
+      circle_175.bindPopup("S Portland Ave & Hanson Pl");
+      circle_175._popup.options.maxWidth = 300;
+      map.addLayer(circle_175)
+      
+      var circle_176 = L.circle([40.75038009, -73.98338988], 76.5210105478, {
+                            color: '#fed470',
+                            fillColor: '#fed470',
+                            fillOpacity: 0.6
+                            });
+      circle_176.bindPopup("W 37 St & 5 Ave");
+      circle_176._popup.options.maxWidth = 300;
+      map.addLayer(circle_176)
+      
+      var circle_177 = L.circle([40.68851534, -73.9647628], 78.4962251042, {
+                            color: '#fff9be',
+                            fillColor: '#fff9be',
+                            fillOpacity: 0.6
+                            });
+      circle_177.bindPopup("Lafayette Ave & St James Pl");
+      circle_177._popup.options.maxWidth = 300;
+      map.addLayer(circle_177)
+      
+      var circle_178 = L.circle([40.71910537, -73.99973337], 84.0578790733, {
+                            color: '#fec965',
+                            fillColor: '#fec965',
+                            fillOpacity: 0.6
+                            });
+      circle_178.bindPopup("Howard St & Centre St");
+      circle_178._popup.options.maxWidth = 300;
+      map.addLayer(circle_178)
+      
+      var circle_179 = L.circle([40.75019995, -73.99093085], 68.1690775442, {
+                            color: '#fc552c',
+                            fillColor: '#fc552c',
+                            fillOpacity: 0.6
+                            });
+      circle_179.bindPopup("W 33 St & 7 Ave");
+      circle_179._popup.options.maxWidth = 300;
+      map.addLayer(circle_179)
+      
+      var circle_180 = L.circle([40.74317449, -74.00366443], 75.4502768081, {
+                            color: '#fec15d',
+                            fillColor: '#fec15d',
+                            fillOpacity: 0.6
+                            });
+      circle_180.bindPopup("9 Ave & W 18 St");
+      circle_180._popup.options.maxWidth = 300;
+      map.addLayer(circle_180)
+      
+      var circle_181 = L.circle([40.7218158, -73.99720307], 85.4018123738, {
+                            color: '#ec2c21',
+                            fillColor: '#ec2c21',
+                            fillOpacity: 0.6
+                            });
+      circle_181.bindPopup("Cleveland Pl & Spring St");
+      circle_181._popup.options.maxWidth = 300;
+      map.addLayer(circle_181)
+      
+      var circle_182 = L.circle([40.68900443, -73.96023854], 89.9682066567, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_182.bindPopup("Lafayette Ave & Classon Ave");
+      circle_182._popup.options.maxWidth = 300;
+      map.addLayer(circle_182)
+      
+      var circle_183 = L.circle([40.68764484, -73.96968902], 80.0914672421, {
+                            color: '#fff8bb',
+                            fillColor: '#fff8bb',
+                            fillOpacity: 0.6
+                            });
+      circle_183.bindPopup("Clermont Ave & Lafayette Ave");
+      circle_183._popup.options.maxWidth = 300;
+      map.addLayer(circle_183)
+      
+      var circle_184 = L.circle([40.76344058, -73.98268129], 89.8425941369, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_184.bindPopup("Broadway & W 53 St");
+      circle_184._popup.options.maxWidth = 300;
+      map.addLayer(circle_184)
+      
+      var circle_185 = L.circle([40.74487634, -73.99529885], 71.651813576, {
+                            color: '#fd8439',
+                            fillColor: '#fd8439',
+                            fillOpacity: 0.6
+                            });
+      circle_185.bindPopup("W 24 St & 7 Ave");
+      circle_185._popup.options.maxWidth = 300;
+      map.addLayer(circle_185)
+      
+      var circle_186 = L.circle([40.70463334, -74.01361706], 114.61042107, {
+                            color: '#fed06c',
+                            fillColor: '#fed06c',
+                            fillOpacity: 0.6
+                            });
+      circle_186.bindPopup("Broadway & Battery Pl");
+      circle_186._popup.options.maxWidth = 300;
+      map.addLayer(circle_186)
+      
+      var circle_187 = L.circle([40.75455731, -73.96592976], 98.3257983314, {
+                            color: '#ffe997',
+                            fillColor: '#ffe997',
+                            fillOpacity: 0.6
+                            });
+      circle_187.bindPopup("E 51 St & 1 Ave");
+      circle_187._popup.options.maxWidth = 300;
+      map.addLayer(circle_187)
+      
+      var circle_188 = L.circle([40.71754834, -74.01322069], 118.870669149, {
+                            color: '#e8241f',
+                            fillColor: '#e8241f',
+                            fillOpacity: 0.6
+                            });
+      circle_188.bindPopup("West St & Chambers St");
+      circle_188._popup.options.maxWidth = 300;
+      map.addLayer(circle_188)
+      
+      var circle_189 = L.circle([40.71939226, -74.00247214], 81.4886442941, {
+                            color: '#fed572',
+                            fillColor: '#fed572',
+                            fillOpacity: 0.6
+                            });
+      circle_189.bindPopup("Lispenard St & Broadway");
+      circle_189._popup.options.maxWidth = 300;
+      map.addLayer(circle_189)
+      
+      var circle_190 = L.circle([40.74206539, -74.00443172], 72.7608127761, {
+                            color: '#fea546',
+                            fillColor: '#fea546',
+                            fillOpacity: 0.6
+                            });
+      circle_190.bindPopup("9 Ave & W 16 St");
+      circle_190._popup.options.maxWidth = 300;
+      map.addLayer(circle_190)
+      
+      var circle_191 = L.circle([40.69608941, -73.97803415], 107.960981448, {
+                            color: '#fffec9',
+                            fillColor: '#fffec9',
+                            fillOpacity: 0.6
+                            });
+      circle_191.bindPopup("Park Ave & St Edwards St");
+      circle_191._popup.options.maxWidth = 300;
+      map.addLayer(circle_191)
+      
+      var circle_192 = L.circle([40.7361967, -74.00859207], 93.0706110255, {
+                            color: '#feda78',
+                            fillColor: '#feda78',
+                            fillOpacity: 0.6
+                            });
+      circle_192.bindPopup("Bank St & Washington St");
+      circle_192._popup.options.maxWidth = 300;
+      map.addLayer(circle_192)
+      
+      var circle_193 = L.circle([40.68981035, -73.97493121], 75.8798102579, {
+                            color: '#fff5b5',
+                            fillColor: '#fff5b5',
+                            fillOpacity: 0.6
+                            });
+      circle_193.bindPopup("DeKalb Ave & S Portland Ave");
+      circle_193._popup.options.maxWidth = 300;
+      map.addLayer(circle_193)
+      
+      var circle_194 = L.circle([40.73416059, -73.98024289], 71.7612928937, {
+                            color: '#fed36f',
+                            fillColor: '#fed36f',
+                            fillOpacity: 0.6
+                            });
+      circle_194.bindPopup("1 Ave & E 18 St");
+      circle_194._popup.options.maxWidth = 300;
+      map.addLayer(circle_194)
+      
+      var circle_195 = L.circle([40.70277159, -73.99383605], 141.831093007, {
+                            color: '#ffea99',
+                            fillColor: '#ffea99',
+                            fillOpacity: 0.6
+                            });
+      circle_195.bindPopup("Old Fulton St");
+      circle_195._popup.options.maxWidth = 300;
+      map.addLayer(circle_195)
+      
+      var circle_196 = L.circle([40.71117416, -74.00016545], 94.6887822803, {
+                            color: '#fff0a8',
+                            fillColor: '#fff0a8',
+                            fillOpacity: 0.6
+                            });
+      circle_196.bindPopup("St James Pl & Pearl St");
+      circle_196._popup.options.maxWidth = 300;
+      map.addLayer(circle_196)
+      
+      var circle_197 = L.circle([40.74444921, -73.98303529], 72.6008640959, {
+                            color: '#fead4a',
+                            fillColor: '#fead4a',
+                            fillOpacity: 0.6
+                            });
+      circle_197.bindPopup("E 30 St & Park Ave S");
+      circle_197._popup.options.maxWidth = 300;
+      map.addLayer(circle_197)
+      
+      var circle_198 = L.circle([40.72082834, -73.97793172], 90.24580253, {
+                            color: '#ffec9d',
+                            fillColor: '#ffec9d',
+                            fillOpacity: 0.6
+                            });
+      circle_198.bindPopup("Avenue D & E 3 St");
+      circle_198._popup.options.maxWidth = 300;
+      map.addLayer(circle_198)
+      
+      var circle_199 = L.circle([40.74854862, -73.98808416], 69.3343974707, {
+                            color: '#fea747',
+                            fillColor: '#fea747',
+                            fillOpacity: 0.6
+                            });
+      circle_199.bindPopup("Broadway & W 32 St");
+      circle_199._popup.options.maxWidth = 300;
+      map.addLayer(circle_199)
+      
+      var circle_200 = L.circle([40.71743998, -74.00583475], 78.6986219081, {
+                            color: '#ffe895',
+                            fillColor: '#ffe895',
+                            fillOpacity: 0.6
+                            });
+      circle_200.bindPopup("Church St & Leonard St");
+      circle_200._popup.options.maxWidth = 300;
+      map.addLayer(circle_200)
+      
+      var circle_201 = L.circle([40.7390169121, -74.0026376103], 68.6180938762, {
+                            color: '#ee3122',
+                            fillColor: '#ee3122',
+                            fillOpacity: 0.6
+                            });
+      circle_201.bindPopup("Greenwich Ave & 8 Ave");
+      circle_201._popup.options.maxWidth = 300;
+      map.addLayer(circle_201)
+      
+      var circle_202 = L.circle([40.70255088, -73.98940236], 103.175961478, {
+                            color: '#ffe58f',
+                            fillColor: '#ffe58f',
+                            fillOpacity: 0.6
+                            });
+      circle_202.bindPopup("Front St & Washington St");
+      circle_202._popup.options.maxWidth = 300;
+      map.addLayer(circle_202)
+      
+      var circle_203 = L.circle([40.73314259, -73.97573881], 83.2109675718, {
+                            color: '#fec965',
+                            fillColor: '#fec965',
+                            fillOpacity: 0.6
+                            });
+      circle_203.bindPopup("E 20 St & FDR Drive");
+      circle_203._popup.options.maxWidth = 300;
+      map.addLayer(circle_203)
+      
+      var circle_204 = L.circle([40.68317813, -73.9659641], 97.6867560456, {
+                            color: '#fff3af',
+                            fillColor: '#fff3af',
+                            fillOpacity: 0.6
+                            });
+      circle_204.bindPopup("Fulton St & Waverly Ave");
+      circle_204._popup.options.maxWidth = 300;
+      map.addLayer(circle_204)
+      
+      var circle_205 = L.circle([40.71605866, -73.99190759], 81.5382670052, {
+                            color: '#feba55',
+                            fillColor: '#feba55',
+                            fillOpacity: 0.6
+                            });
+      circle_205.bindPopup("Allen St & Hester St");
+      circle_205._popup.options.maxWidth = 300;
+      map.addLayer(circle_205)
+      
+      var circle_206 = L.circle([40.69363137, -73.96223558], 85.2995263254, {
+                            color: '#fff8ba',
+                            fillColor: '#fff8ba',
+                            fillOpacity: 0.6
+                            });
+      circle_206.bindPopup("Emerson Pl & Myrtle Ave");
+      circle_206._popup.options.maxWidth = 300;
+      map.addLayer(circle_206)
+      
+      var circle_207 = L.circle([40.69196566, -73.9813018], 51.1969596321, {
+                            color: '#fff3af',
+                            fillColor: '#fff3af',
+                            fillOpacity: 0.6
+                            });
+      circle_207.bindPopup("Willoughby St & Fleet St");
+      circle_207._popup.options.maxWidth = 300;
+      map.addLayer(circle_207)
+      
+      var circle_208 = L.circle([40.72043411, -74.01020609], 82.0406571098, {
+                            color: '#feb44e',
+                            fillColor: '#feb44e',
+                            fillOpacity: 0.6
+                            });
+      circle_208.bindPopup("Greenwich St & N Moore St");
+      circle_208._popup.options.maxWidth = 300;
+      map.addLayer(circle_208)
+      
+      var circle_209 = L.circle([40.68312489, -73.97895137], 142.103782584, {
+                            color: '#ffec9d',
+                            fillColor: '#ffec9d',
+                            fillOpacity: 0.6
+                            });
+      circle_209.bindPopup("Dean St & 4 Ave");
+      circle_209._popup.options.maxWidth = 300;
+      map.addLayer(circle_209)
+      
+      var circle_210 = L.circle([40.7172274, -73.98802084], 85.7600898632, {
+                            color: '#fedd7e',
+                            fillColor: '#fedd7e',
+                            fillOpacity: 0.6
+                            });
+      circle_210.bindPopup("Norfolk St & Broome St");
+      circle_210._popup.options.maxWidth = 300;
+      map.addLayer(circle_210)
+      
+      var circle_211 = L.circle([40.72165481, -74.00234737], 90.4934699842, {
+                            color: '#feca66',
+                            fillColor: '#feca66',
+                            fillOpacity: 0.6
+                            });
+      circle_211.bindPopup("Grand St & Greene St");
+      circle_211._popup.options.maxWidth = 300;
+      map.addLayer(circle_211)
+      
+      var circle_212 = L.circle([40.735238, -74.000271], 69.8855628979, {
+                            color: '#fecf6b',
+                            fillColor: '#fecf6b',
+                            fillOpacity: 0.6
+                            });
+      circle_212.bindPopup("Greenwich Ave & Charles St");
+      circle_212._popup.options.maxWidth = 300;
+      map.addLayer(circle_212)
+      
+      var circle_213 = L.circle([40.6906495, -73.95643107], 124.589035449, {
+                            color: '#fffac1',
+                            fillColor: '#fffac1',
+                            fillOpacity: 0.6
+                            });
+      circle_213.bindPopup("DeKalb Ave & Skillman St");
+      circle_213._popup.options.maxWidth = 300;
+      map.addLayer(circle_213)
+      
+      var circle_214 = L.circle([40.71219906, -73.97948148], 146.575968543, {
+                            color: '#ffec9f',
+                            fillColor: '#ffec9f',
+                            fillOpacity: 0.6
+                            });
+      circle_214.bindPopup("Cherry St");
+      circle_214._popup.options.maxWidth = 300;
+      map.addLayer(circle_214)
+      
+      var circle_215 = L.circle([40.73261787, -73.99158043], 67.3279649035, {
+                            color: '#fed16e',
+                            fillColor: '#fed16e',
+                            fillOpacity: 0.6
+                            });
+      circle_215.bindPopup("E 11 St & Broadway");
+      circle_215._popup.options.maxWidth = 300;
+      map.addLayer(circle_215)
+      
+      var circle_216 = L.circle([40.72779126, -73.98564945], 71.8436470508, {
+                            color: '#febf5a',
+                            fillColor: '#febf5a',
+                            fillOpacity: 0.6
+                            });
+      circle_216.bindPopup("St Marks Pl & 1 Ave");
+      circle_216._popup.options.maxWidth = 300;
+      map.addLayer(circle_216)
+      
+      var circle_217 = L.circle([40.69760127, -73.99344559], 94.3218853311, {
+                            color: '#ffefa4',
+                            fillColor: '#ffefa4',
+                            fillOpacity: 0.6
+                            });
+      circle_217.bindPopup("Clark St & Henry St");
+      circle_217._popup.options.maxWidth = 300;
+      map.addLayer(circle_217)
+      
+      var circle_218 = L.circle([40.76584941, -73.98690506], 100.002078757, {
+                            color: '#ffeb9c',
+                            fillColor: '#ffeb9c',
+                            fillOpacity: 0.6
+                            });
+      circle_218.bindPopup("W 54 St & 9 Ave");
+      circle_218._popup.options.maxWidth = 300;
+      map.addLayer(circle_218)
+      
+      var circle_219 = L.circle([40.71044554, -73.96525063], 187.885971524, {
+                            color: '#fff4b2',
+                            fillColor: '#fff4b2',
+                            fillOpacity: 0.6
+                            });
+      circle_219.bindPopup("Broadway & Berry St");
+      circle_219._popup.options.maxWidth = 300;
+      map.addLayer(circle_219)
+      
+      var circle_220 = L.circle([40.71534825, -73.96024116], 141.396727756, {
+                            color: '#fee187',
+                            fillColor: '#fee187',
+                            fillOpacity: 0.6
+                            });
+      circle_220.bindPopup("Metropolitan Ave & Bedford Ave");
+      circle_220._popup.options.maxWidth = 300;
+      map.addLayer(circle_220)
+      
+      var circle_221 = L.circle([40.76590936, -73.97634151], 213.276684286, {
+                            color: '#fead4a',
+                            fillColor: '#fead4a',
+                            fillOpacity: 0.6
+                            });
+      circle_221.bindPopup("Central Park S & 6 Ave");
+      circle_221._popup.options.maxWidth = 300;
+      map.addLayer(circle_221)
+      
+      var circle_222 = L.circle([40.69794, -73.96986848], 101.667220476, {
+                            color: '#fff9be',
+                            fillColor: '#fff9be',
+                            fillOpacity: 0.6
+                            });
+      circle_222.bindPopup("Clinton Ave & Flushing Ave");
+      circle_222._popup.options.maxWidth = 300;
+      map.addLayer(circle_222)
+      
+      var circle_223 = L.circle([40.75255434, -73.97282625], 79.7044684275, {
+                            color: '#fedb7a',
+                            fillColor: '#fedb7a',
+                            fillOpacity: 0.6
+                            });
+      circle_223.bindPopup("E 45 St & 3 Ave");
+      circle_223._popup.options.maxWidth = 300;
+      map.addLayer(circle_223)
+      
+      var circle_224 = L.circle([40.75934501, -73.96759673], 87.4250123518, {
+                            color: '#ffe48d',
+                            fillColor: '#ffe48d',
+                            fillOpacity: 0.6
+                            });
+      circle_224.bindPopup("E 56 St & 3 Ave");
+      circle_224._popup.options.maxWidth = 300;
+      map.addLayer(circle_224)
+      
+      var circle_225 = L.circle([40.71748752, -74.0104554], 87.9682306041, {
+                            color: '#ffe48d',
+                            fillColor: '#ffe48d',
+                            fillOpacity: 0.6
+                            });
+      circle_225.bindPopup("Duane St & Greenwich St");
+      circle_225._popup.options.maxWidth = 300;
+      map.addLayer(circle_225)
+      
+      var circle_226 = L.circle([40.71406667, -73.99293911], 78.3721885742, {
+                            color: '#fee085',
+                            fillColor: '#fee085',
+                            fillOpacity: 0.6
+                            });
+      circle_226.bindPopup("Pike St & E Broadway");
+      circle_226._popup.options.maxWidth = 300;
+      map.addLayer(circle_226)
+      
+      var circle_227 = L.circle([40.76341379, -73.99667444], 100.179739611, {
+                            color: '#fed774',
+                            fillColor: '#fed774',
+                            fillOpacity: 0.6
+                            });
+      circle_227.bindPopup("W 46 St & 11 Ave");
+      circle_227._popup.options.maxWidth = 300;
+      map.addLayer(circle_227)
+      
+      var circle_228 = L.circle([40.700469, -73.991454], 119.630783858, {
+                            color: '#fff9bd',
+                            fillColor: '#fff9bd',
+                            fillOpacity: 0.6
+                            });
+      circle_228.bindPopup("Henry St & Poplar St");
+      circle_228._popup.options.maxWidth = 300;
+      map.addLayer(circle_228)
+      
+      var circle_229 = L.circle([40.748238, -73.978311], 78.5811685709, {
+                            color: '#fedd7f',
+                            fillColor: '#fedd7f',
+                            fillOpacity: 0.6
+                            });
+      circle_229.bindPopup("E 37 St & Lexington Ave");
+      circle_229._popup.options.maxWidth = 300;
+      map.addLayer(circle_229)
+      
+      var circle_230 = L.circle([40.69839895, -73.98068914], 120.283673984, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_230.bindPopup("Nassau St & Navy St");
+      circle_230._popup.options.maxWidth = 300;
+      map.addLayer(circle_230)
+      
+      var circle_231 = L.circle([40.69178232, -73.97372989], 76.7492885131, {
+                            color: '#fff8bb',
+                            fillColor: '#fff8bb',
+                            fillOpacity: 0.6
+                            });
+      circle_231.bindPopup("Washington Park");
+      circle_231._popup.options.maxWidth = 300;
+      map.addLayer(circle_231)
+      
+      var circle_232 = L.circle([40.71782143, -73.97628939], 102.985090243, {
+                            color: '#ffeda0',
+                            fillColor: '#ffeda0',
+                            fillOpacity: 0.6
+                            });
+      circle_232.bindPopup("Stanton St & Mangin St");
+      circle_232._popup.options.maxWidth = 300;
+      map.addLayer(circle_232)
+      
+      var circle_233 = L.circle([40.74144387, -73.97536082], 71.4383068783, {
+                            color: '#fead4a',
+                            fillColor: '#fead4a',
+                            fillOpacity: 0.6
+                            });
+      circle_233.bindPopup("1 Ave & E 30 St");
+      circle_233._popup.options.maxWidth = 300;
+      map.addLayer(circle_233)
+      
+      var circle_234 = L.circle([40.687979, -73.978474], 96.1476872648, {
+                            color: '#fff3ae',
+                            fillColor: '#fff3ae',
+                            fillOpacity: 0.6
+                            });
+      circle_234.bindPopup("Fulton St & Rockwell Pl");
+      circle_234._popup.options.maxWidth = 300;
+      map.addLayer(circle_234)
+      
+      var circle_235 = L.circle([40.716887, -73.963198], 186.297149513, {
+                            color: '#ffe48d',
+                            fillColor: '#ffe48d',
+                            fillOpacity: 0.6
+                            });
+      circle_235.bindPopup("Wythe Ave & Metropolitan Ave");
+      circle_235._popup.options.maxWidth = 300;
+      map.addLayer(circle_235)
+      
+      var circle_236 = L.circle([40.68415748, -73.96922273], 113.821954133, {
+                            color: '#fff9be',
+                            fillColor: '#fff9be',
+                            fillOpacity: 0.6
+                            });
+      circle_236.bindPopup("Fulton St & Clermont Ave");
+      circle_236._popup.options.maxWidth = 300;
+      map.addLayer(circle_236)
+      
+      var circle_237 = L.circle([40.75795248, -73.97787642], 78.6386905755, {
+                            color: '#ffec9f',
+                            fillColor: '#ffec9f',
+                            fillOpacity: 0.6
+                            });
+      circle_237.bindPopup("W 49 St & 5 Ave");
+      circle_237._popup.options.maxWidth = 300;
+      map.addLayer(circle_237)
+      
+      var circle_238 = L.circle([40.689888, -73.981013], 50.000055429, {
+                            color: '#ffe48d',
+                            fillColor: '#ffe48d',
+                            fillOpacity: 0.6
+                            });
+      circle_238.bindPopup("DeKalb Ave & Hudson Ave");
+      circle_238._popup.options.maxWidth = 300;
+      map.addLayer(circle_238)
+      
+      var circle_239 = L.circle([40.71173107, -73.99193043], 95.5845479927, {
+                            color: '#ffefa5',
+                            fillColor: '#ffefa5',
+                            fillOpacity: 0.6
+                            });
+      circle_239.bindPopup("Pike St & Monroe St");
+      circle_239._popup.options.maxWidth = 300;
+      map.addLayer(circle_239)
+      
+      var circle_240 = L.circle([40.74195138, -74.00803013], 118.48565852, {
+                            color: '#fed470',
+                            fillColor: '#fed470',
+                            fillOpacity: 0.6
+                            });
+      circle_240.bindPopup("W 14 St & The High Line");
+      circle_240._popup.options.maxWidth = 300;
+      map.addLayer(circle_240)
+      
+      var circle_241 = L.circle([40.69573398, -73.97129668], 77.0590282995, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_241.bindPopup("Clermont Ave & Park Ave");
+      circle_241._popup.options.maxWidth = 300;
+      map.addLayer(circle_241)
+      
+      var circle_242 = L.circle([40.71285887, -73.96590294], 122.719001991, {
+                            color: '#fff3af',
+                            fillColor: '#fff3af',
+                            fillOpacity: 0.6
+                            });
+      circle_242.bindPopup("S 4 St & Wythe Ave");
+      circle_242._popup.options.maxWidth = 300;
+      map.addLayer(circle_242)
+      
+      var circle_243 = L.circle([40.744219, -73.97121214], 110.798239082, {
+                            color: '#fed673',
+                            fillColor: '#fed673',
+                            fillOpacity: 0.6
+                            });
+      circle_243.bindPopup("FDR Drive & E 35 St");
+      circle_243._popup.options.maxWidth = 300;
+      map.addLayer(circle_243)
+      
+      var circle_244 = L.circle([40.71926081, -73.98178024], 89.2800386732, {
+                            color: '#fff5b5',
+                            fillColor: '#fff5b5',
+                            fillOpacity: 0.6
+                            });
+      circle_244.bindPopup("Pitt St & Stanton St");
+      circle_244._popup.options.maxWidth = 300;
+      map.addLayer(circle_244)
+      
+      var circle_245 = L.circle([40.70255065, -74.0127234], 93.6599464565, {
+                            color: '#ffe998',
+                            fillColor: '#ffe998',
+                            fillOpacity: 0.6
+                            });
+      circle_245.bindPopup("Water - Whitehall Plaza");
+      circle_245._popup.options.maxWidth = 300;
+      map.addLayer(circle_245)
+      
+      var circle_246 = L.circle([40.74395411, -73.99144871], 71.5119162253, {
+                            color: '#fea145',
+                            fillColor: '#fea145',
+                            fillOpacity: 0.6
+                            });
+      circle_246.bindPopup("W 25 St & 6 Ave");
+      circle_246._popup.options.maxWidth = 300;
+      map.addLayer(circle_246)
+      
+      var circle_247 = L.circle([40.7047177, -74.00926027], 87.4080684248, {
+                            color: '#fedb7a',
+                            fillColor: '#fedb7a',
+                            fillOpacity: 0.6
+                            });
+      circle_247.bindPopup("Pearl St & Hanover Square");
+      circle_247._popup.options.maxWidth = 300;
+      map.addLayer(circle_247)
+      
+      var circle_248 = L.circle([40.7149787, -74.013012], 96.7125227805, {
+                            color: '#fede82',
+                            fillColor: '#fede82',
+                            fillOpacity: 0.6
+                            });
+      circle_248.bindPopup("Murray St & West St");
+      circle_248._popup.options.maxWidth = 300;
+      map.addLayer(circle_248)
+      
+      var circle_249 = L.circle([40.69597683, -73.99014892], 145.99562212, {
+                            color: '#fff3ae',
+                            fillColor: '#fff3ae',
+                            fillOpacity: 0.6
+                            });
+      circle_249.bindPopup("Cadman Plaza E & Tillary St");
+      circle_249._popup.options.maxWidth = 300;
+      map.addLayer(circle_249)
+      
+      var circle_250 = L.circle([40.70834698, -74.01713445], 106.845755184, {
+                            color: '#febf5a',
+                            fillColor: '#febf5a',
+                            fillOpacity: 0.6
+                            });
+      circle_250.bindPopup("West Thames St");
+      circle_250._popup.options.maxWidth = 300;
+      map.addLayer(circle_250)
+      
+      var circle_251 = L.circle([40.75022392, -73.97121414], 84.725455201, {
+                            color: '#ffeea3',
+                            fillColor: '#ffeea3',
+                            fillOpacity: 0.6
+                            });
+      circle_251.bindPopup("E 43 St & 2 Ave");
+      circle_251._popup.options.maxWidth = 300;
+      map.addLayer(circle_251)
+      
+      var circle_252 = L.circle([40.69246277, -73.98963911], 89.8833387274, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_252.bindPopup("Joralemon St & Adams St");
+      circle_252._popup.options.maxWidth = 300;
+      map.addLayer(circle_252)
+      
+      var circle_253 = L.circle([40.74334935, -74.00681753], 89.7646411845, {
+                            color: '#feb04b',
+                            fillColor: '#feb04b',
+                            fillOpacity: 0.6
+                            });
+      circle_253.bindPopup("W 16 St & The High Line");
+      circle_253._popup.options.maxWidth = 300;
+      map.addLayer(circle_253)
+      
+      var circle_254 = L.circle([40.69512845, -73.99595065], 101.27230179, {
+                            color: '#ffeda0',
+                            fillColor: '#ffeda0',
+                            fillOpacity: 0.6
+                            });
+      circle_254.bindPopup("Hicks St & Montague St");
+      circle_254._popup.options.maxWidth = 300;
+      map.addLayer(circle_254)
+      
+      var circle_255 = L.circle([40.71336124, -74.00937622], 86.7972477064, {
+                            color: '#fedf83',
+                            fillColor: '#fedf83',
+                            fillOpacity: 0.6
+                            });
+      circle_255.bindPopup("Park Pl & Church St");
+      circle_255._popup.options.maxWidth = 300;
+      map.addLayer(circle_255)
+      
+      var circle_256 = L.circle([40.72873888, -74.00748842], 86.3508383513, {
+                            color: '#fc6832',
+                            fillColor: '#fc6832',
+                            fillOpacity: 0.6
+                            });
+      circle_256.bindPopup("W Houston St & Hudson St");
+      circle_256._popup.options.maxWidth = 300;
+      map.addLayer(circle_256)
+      
+      var circle_257 = L.circle([40.75500254, -73.98014437], 76.9436148844, {
+                            color: '#febe59',
+                            fillColor: '#febe59',
+                            fillOpacity: 0.6
+                            });
+      circle_257.bindPopup("W 44 St & 5 Ave");
+      circle_257._popup.options.maxWidth = 300;
+      map.addLayer(circle_257)
+      
+      var circle_258 = L.circle([40.69327018, -73.97703874], 87.0019313305, {
+                            color: '#fffcc5',
+                            fillColor: '#fffcc5',
+                            fillOpacity: 0.6
+                            });
+      circle_258.bindPopup("Myrtle Ave & St Edwards St");
+      circle_258._popup.options.maxWidth = 300;
+      map.addLayer(circle_258)
+      
+      var circle_259 = L.circle([40.76095756, -73.96724467], 94.402481558, {
+                            color: '#feae4a',
+                            fillColor: '#feae4a',
+                            fillOpacity: 0.6
+                            });
+      circle_259.bindPopup("E 58 St & 3 Ave");
+      circle_259._popup.options.maxWidth = 300;
+      map.addLayer(circle_259)
+      
+      var circle_260 = L.circle([40.73535398, -74.00483091], 83.6732839399, {
+                            color: '#fed673',
+                            fillColor: '#fed673',
+                            fillOpacity: 0.6
+                            });
+      circle_260.bindPopup("Perry St & Bleecker St");
+      circle_260._popup.options.maxWidth = 300;
+      map.addLayer(circle_260)
+      
+      var circle_261 = L.circle([40.70569254, -74.01677685], 111.455798585, {
+                            color: '#feda78',
+                            fillColor: '#feda78',
+                            fillOpacity: 0.6
+                            });
+      circle_261.bindPopup("Little West St & 1 Pl");
+      circle_261._popup.options.maxWidth = 300;
+      map.addLayer(circle_261)
+      
+      var circle_262 = L.circle([40.71269042, -73.98776323], 89.196009539, {
+                            color: '#ffeb9c',
+                            fillColor: '#ffeb9c',
+                            fillOpacity: 0.6
+                            });
+      circle_262.bindPopup("Madison St & Clinton St");
+      circle_262._popup.options.maxWidth = 300;
+      map.addLayer(circle_262)
+      
+      var circle_263 = L.circle([40.7014851, -73.98656928], 88.3976733445, {
+                            color: '#fee289',
+                            fillColor: '#fee289',
+                            fillOpacity: 0.6
+                            });
+      circle_263.bindPopup("York St & Jay St");
+      circle_263._popup.options.maxWidth = 300;
+      map.addLayer(circle_263)
+      
+      var circle_264 = L.circle([40.749156, -73.9916], 68.8655688916, {
+                            color: '#fc5f2f',
+                            fillColor: '#fc5f2f',
+                            fillOpacity: 0.6
+                            });
+      circle_264.bindPopup("W 31 St & 7 Ave");
+      circle_264._popup.options.maxWidth = 300;
+      map.addLayer(circle_264)
+      
+      var circle_265 = L.circle([40.71473993, -74.00910627], 105.541205153, {
+                            color: '#ffe48c',
+                            fillColor: '#ffe48c',
+                            fillOpacity: 0.6
+                            });
+      circle_265.bindPopup("Warren St & Church St");
+      circle_265._popup.options.maxWidth = 300;
+      map.addLayer(circle_265)
+      
+      var circle_266 = L.circle([40.7462009, -73.98855723], 72.6514979559, {
+                            color: '#feb24c',
+                            fillColor: '#feb24c',
+                            fillOpacity: 0.6
+                            });
+      circle_266.bindPopup("Broadway & W 29 St");
+      circle_266._popup.options.maxWidth = 300;
+      map.addLayer(circle_266)
+      
+      var circle_267 = L.circle([40.7153379, -74.01658354], 97.5236205154, {
+                            color: '#fc572c',
+                            fillColor: '#fc572c',
+                            fillOpacity: 0.6
+                            });
+      circle_267.bindPopup("Vesey Pl & River Terrace");
+      circle_267._popup.options.maxWidth = 300;
+      map.addLayer(circle_267)
+      
+      var circle_268 = L.circle([40.76087502, -74.00277668], 122.46485837, {
+                            color: '#fd953f',
+                            fillColor: '#fd953f',
+                            fillOpacity: 0.6
+                            });
+      circle_268.bindPopup("12 Ave & W 40 St");
+      circle_268._popup.options.maxWidth = 300;
+      map.addLayer(circle_268)
+      
+      var circle_269 = L.circle([40.69986937, -73.98271933], 111.905095023, {
+                            color: '#ffeea3',
+                            fillColor: '#ffeea3',
+                            fillOpacity: 0.6
+                            });
+      circle_269.bindPopup("Sands St & Gold St");
+      circle_269._popup.options.maxWidth = 300;
+      map.addLayer(circle_269)
+      
+      var circle_270 = L.circle([40.746745, -74.007756], 91.1470768944, {
+                            color: '#fd8e3c',
+                            fillColor: '#fd8e3c',
+                            fillOpacity: 0.6
+                            });
+      circle_270.bindPopup("W 20 St & 11 Ave");
+      circle_270._popup.options.maxWidth = 300;
+      map.addLayer(circle_270)
+      
+      var circle_271 = L.circle([40.75320159, -73.9779874], 72.6222493186, {
+                            color: '#fc6c33',
+                            fillColor: '#fc6c33',
+                            fillOpacity: 0.6
+                            });
+      circle_271.bindPopup("E 43 St & Vanderbilt Ave");
+      circle_271._popup.options.maxWidth = 300;
+      map.addLayer(circle_271)
+      
+      var circle_272 = L.circle([40.71307916, -73.99851193], 75.3410979794, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_272.bindPopup("St James Pl & Oliver St");
+      circle_272._popup.options.maxWidth = 300;
+      map.addLayer(circle_272)
+      
+      var circle_273 = L.circle([40.70037867, -73.99548059], 122.218465964, {
+                            color: '#fff8ba',
+                            fillColor: '#fff8ba',
+                            fillOpacity: 0.6
+                            });
+      circle_273.bindPopup("Columbia Heights & Cranberry St");
+      circle_273._popup.options.maxWidth = 300;
+      map.addLayer(circle_273)
+      
+      var circle_274 = L.circle([40.72185379, -74.00771779], 96.0966556879, {
+                            color: '#fff3af',
+                            fillColor: '#fff3af',
+                            fillOpacity: 0.6
+                            });
+      circle_274.bindPopup("Laight St & Hudson St");
+      circle_274._popup.options.maxWidth = 300;
+      map.addLayer(circle_274)
+      
+      var circle_275 = L.circle([40.68926942, -73.98912867], 100.362917094, {
+                            color: '#ffe590',
+                            fillColor: '#ffe590',
+                            fillOpacity: 0.6
+                            });
+      circle_275.bindPopup("State St & Smith St");
+      circle_275._popup.options.maxWidth = 300;
+      map.addLayer(circle_275)
+      
+      var circle_276 = L.circle([40.7451677, -73.98683077], 72.4613869366, {
+                            color: '#feb852',
+                            fillColor: '#feb852',
+                            fillOpacity: 0.6
+                            });
+      circle_276.bindPopup("5 Ave & E 29 St");
+      circle_276._popup.options.maxWidth = 300;
+      map.addLayer(circle_276)
+      
+      var circle_277 = L.circle([40.68650065, -73.96563307], 76.8914696563, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_277.bindPopup("Washington Ave & Greene Ave");
+      circle_277._popup.options.maxWidth = 300;
+      map.addLayer(circle_277)
+      
+      var circle_278 = L.circle([40.68807003, -73.98410637], 96.2555555556, {
+                            color: '#fff1a9',
+                            fillColor: '#fff1a9',
+                            fillOpacity: 0.6
+                            });
+      circle_278.bindPopup("Bond St & Schermerhorn St");
+      circle_278._popup.options.maxWidth = 300;
+      map.addLayer(circle_278)
+      
+      var circle_279 = L.circle([40.69892054, -73.97332996], 65.0876510067, {
+                            color: '#fffecb',
+                            fillColor: '#fffecb',
+                            fillOpacity: 0.6
+                            });
+      circle_279.bindPopup("7 Ave & Farragut St");
+      circle_279._popup.options.maxWidth = 300;
+      map.addLayer(circle_279)
+      
+      var circle_280 = L.circle([40.68683208, -73.9796772], 118.368466941, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_280.bindPopup("3 Ave & Schermerhorn St");
+      circle_280._popup.options.maxWidth = 300;
+      map.addLayer(circle_280)
+      
+      var circle_281 = L.circle([40.724399, -74.004704], 86.0979876505, {
+                            color: '#fed774',
+                            fillColor: '#fed774',
+                            fillOpacity: 0.6
+                            });
+      circle_281.bindPopup("6 Ave & Broome St");
+      circle_281._popup.options.maxWidth = 300;
+      map.addLayer(circle_281)
+      
+      var circle_282 = L.circle([40.75828065, -73.97069431], 83.0946184644, {
+                            color: '#fee38b',
+                            fillColor: '#fee38b',
+                            fillOpacity: 0.6
+                            });
+      circle_282.bindPopup("E 53 St & Lexington Ave");
+      circle_282._popup.options.maxWidth = 300;
+      map.addLayer(circle_282)
+      
+      var circle_283 = L.circle([40.75466591, -73.99138152], 79.2046848309, {
+                            color: '#fd7636',
+                            fillColor: '#fd7636',
+                            fillOpacity: 0.6
+                            });
+      circle_283.bindPopup("W 38 St & 8 Ave");
+      circle_283._popup.options.maxWidth = 300;
+      map.addLayer(circle_283)
+      
+      var circle_284 = L.circle([40.75714758, -73.97207836], 82.4892543501, {
+                            color: '#fee085',
+                            fillColor: '#fee085',
+                            fillOpacity: 0.6
+                            });
+      circle_284.bindPopup("E 51 St & Lexington Ave");
+      circle_284._popup.options.maxWidth = 300;
+      map.addLayer(circle_284)
+      
+      var circle_285 = L.circle([40.72362738, -73.99949601], 87.9503446151, {
+                            color: '#fecb67',
+                            fillColor: '#fecb67',
+                            fillOpacity: 0.6
+                            });
+      circle_285.bindPopup("Mercer St & Spring St");
+      circle_285._popup.options.maxWidth = 300;
+      map.addLayer(circle_285)
+      
+      var circle_286 = L.circle([40.75992262, -73.97648516], 78.1149679184, {
+                            color: '#fedf83',
+                            fillColor: '#fedf83',
+                            fillOpacity: 0.6
+                            });
+      circle_286.bindPopup("W 52 St & 5 Ave");
+      circle_286._popup.options.maxWidth = 300;
+      map.addLayer(circle_286)
+      
+      var circle_287 = L.circle([40.72405549, -74.00965965], 91.9066174588, {
+                            color: '#fed470',
+                            fillColor: '#fed470',
+                            fillOpacity: 0.6
+                            });
+      circle_287.bindPopup("Watts St & Greenwich St");
+      circle_287._popup.options.maxWidth = 300;
+      map.addLayer(circle_287)
+      
+      var circle_288 = L.circle([40.69089272, -73.99612349], 103.306406586, {
+                            color: '#ffeda1',
+                            fillColor: '#ffeda1',
+                            fillOpacity: 0.6
+                            });
+      circle_288.bindPopup("Henry St & Atlantic Ave");
+      circle_288._popup.options.maxWidth = 300;
+      map.addLayer(circle_288)
+      
+      var circle_289 = L.circle([40.71870987, -74.0090009], 77.3818058655, {
+                            color: '#ffeb9c',
+                            fillColor: '#ffeb9c',
+                            fillOpacity: 0.6
+                            });
+      circle_289.bindPopup("Harrison St & Hudson St");
+      circle_289._popup.options.maxWidth = 300;
+      map.addLayer(circle_289)
+      
+      var circle_290 = L.circle([40.70862144, -74.00722156], 85.3464984701, {
+                            color: '#fee289',
+                            fillColor: '#fee289',
+                            fillOpacity: 0.6
+                            });
+      circle_290.bindPopup("John St & William St");
+      circle_290._popup.options.maxWidth = 300;
+      map.addLayer(circle_290)
+      
+      var circle_291 = L.circle([40.710451, -73.960876], 145.367631027, {
+                            color: '#feda78',
+                            fillColor: '#feda78',
+                            fillOpacity: 0.6
+                            });
+      circle_291.bindPopup("S 5 Pl & S 4 St");
+      circle_291._popup.options.maxWidth = 300;
+      map.addLayer(circle_291)
+      
+      var circle_292 = L.circle([40.69028437, -73.98707105], 99.4016715116, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_292.bindPopup("Gallatin Pl & Livingston St");
+      circle_292._popup.options.maxWidth = 300;
+      map.addLayer(circle_292)
+      
+      var circle_293 = L.circle([40.71850211, -73.98329859], 126.438345261, {
+                            color: '#ffe793',
+                            fillColor: '#ffe793',
+                            fillOpacity: 0.6
+                            });
+      circle_293.bindPopup("Rivington St & Ridge St");
+      circle_293._popup.options.maxWidth = 300;
+      map.addLayer(circle_293)
+      
+      var circle_294 = L.circle([40.71286844, -73.95698119], 167.663832695, {
+                            color: '#fff4b2',
+                            fillColor: '#fff4b2',
+                            fillOpacity: 0.6
+                            });
+      circle_294.bindPopup("Grand St & Havemeyer St");
+      circle_294._popup.options.maxWidth = 300;
+      map.addLayer(circle_294)
+      
+      var circle_295 = L.circle([40.70955958, -74.00653609], 84.9896957851, {
+                            color: '#fedd7f',
+                            fillColor: '#fedd7f',
+                            fillOpacity: 0.6
+                            });
+      circle_295.bindPopup("Fulton St & William St");
+      circle_295._popup.options.maxWidth = 300;
+      map.addLayer(circle_295)
+      
+      var circle_296 = L.circle([40.68676793, -73.95928168], 96.6793593387, {
+                            color: '#fffac0',
+                            fillColor: '#fffac0',
+                            fillOpacity: 0.6
+                            });
+      circle_296.bindPopup("Lexington Ave & Classon Ave");
+      circle_296._popup.options.maxWidth = 300;
+      map.addLayer(circle_296)
+      
+      var circle_297 = L.circle([40.696192, -73.991218], 136.141393376, {
+                            color: '#fff7b7',
+                            fillColor: '#fff7b7',
+                            fillOpacity: 0.6
+                            });
+      circle_297.bindPopup("Clinton St & Tillary St");
+      circle_297._popup.options.maxWidth = 300;
+      map.addLayer(circle_297)
+      
+      var circle_298 = L.circle([40.7597108, -73.97402311], 77.4037692212, {
+                            color: '#ffe58f',
+                            fillColor: '#ffe58f',
+                            fillOpacity: 0.6
+                            });
+      circle_298.bindPopup("E 53 St & Madison Ave");
+      circle_298._popup.options.maxWidth = 300;
+      map.addLayer(circle_298)
+      
+      var circle_299 = L.circle([40.75968085, -73.97031366], 96.4873842763, {
+                            color: '#ffe998',
+                            fillColor: '#ffe998',
+                            fillOpacity: 0.6
+                            });
+      circle_299.bindPopup("E 55 St & Lexington Ave");
+      circle_299._popup.options.maxWidth = 300;
+      map.addLayer(circle_299)
+      
+      var circle_300 = L.circle([40.70251526, -74.01427023], 129.178954664, {
+                            color: '#fee289',
+                            fillColor: '#fee289',
+                            fillOpacity: 0.6
+                            });
+      circle_300.bindPopup("State St");
+      circle_300._popup.options.maxWidth = 300;
+      map.addLayer(circle_300)
+      
+      var circle_301 = L.circle([40.69424674, -73.99215922], 93.2748884924, {
+                            color: '#fff1ab',
+                            fillColor: '#fff1ab',
+                            fillOpacity: 0.6
+                            });
+      circle_301.bindPopup("Montague St & Clinton St");
+      circle_301._popup.options.maxWidth = 300;
+      map.addLayer(circle_301)
+      
+      var circle_302 = L.circle([40.749717753, -74.002950346], 80.34380364, {
+                            color: '#febd57',
+                            fillColor: '#febd57',
+                            fillOpacity: 0.6
+                            });
+      circle_302.bindPopup("W 26 St & 10 Ave");
+      circle_302._popup.options.maxWidth = 300;
+      map.addLayer(circle_302)
+      
+      var circle_303 = L.circle([40.70355377, -74.00670227], 122.287063017, {
+                            color: '#fed977',
+                            fillColor: '#fed977',
+                            fillOpacity: 0.6
+                            });
+      circle_303.bindPopup("South St & Gouverneur Ln");
+      circle_303._popup.options.maxWidth = 300;
+      map.addLayer(circle_303)
+      
+      var circle_304 = L.circle([40.71260486, -73.96264403], 156.538639061, {
+                            color: '#fff4b0',
+                            fillColor: '#fff4b0',
+                            fillOpacity: 0.6
+                            });
+      circle_304.bindPopup("S 3 St & Bedford Ave");
+      circle_304._popup.options.maxWidth = 300;
+      map.addLayer(circle_304)
+      
+      var circle_305 = L.circle([40.71076228, -73.99400398], 92.0983407293, {
+                            color: '#ffefa5',
+                            fillColor: '#ffefa5',
+                            fillOpacity: 0.6
+                            });
+      circle_305.bindPopup("Market St & Cherry St");
+      circle_305._popup.options.maxWidth = 300;
+      map.addLayer(circle_305)
+      
+      var circle_306 = L.circle([40.694528, -73.958089], 392.255008319, {
+                            color: '#fffcc4',
+                            fillColor: '#fffcc4',
+                            fillOpacity: 0.6
+                            });
+      circle_306.bindPopup("Franklin Ave & Myrtle Ave");
+      circle_306._popup.options.maxWidth = 300;
+      map.addLayer(circle_306)
+      
+      var circle_307 = L.circle([40.7606597, -73.98042047], 79.1457766491, {
+                            color: '#feb04b',
+                            fillColor: '#feb04b',
+                            fillOpacity: 0.6
+                            });
+      circle_307.bindPopup("W 51 St & 6 Ave");
+      circle_307._popup.options.maxWidth = 300;
+      map.addLayer(circle_307)
+      
+      var circle_308 = L.circle([40.76695317, -73.98169333], 138.835768562, {
+                            color: '#fd9d43',
+                            fillColor: '#fd9d43',
+                            fillOpacity: 0.6
+                            });
+      circle_308.bindPopup("Broadway & W 58 St");
+      circle_308._popup.options.maxWidth = 300;
+      map.addLayer(circle_308)
+      
+      var circle_309 = L.circle([40.75640548, -73.9900262], 73.3739071038, {
+                            color: '#fb4b29',
+                            fillColor: '#fb4b29',
+                            fillOpacity: 0.6
+                            });
+      circle_309.bindPopup("W 41 St & 8 Ave");
+      circle_309._popup.options.maxWidth = 300;
+      map.addLayer(circle_309)
+      
+      var circle_310 = L.circle([40.75513557, -73.98658032], 85.2599179248, {
+                            color: '#feb24c',
+                            fillColor: '#feb24c',
+                            fillOpacity: 0.6
+                            });
+      circle_310.bindPopup("Broadway & W 41 St");
+      circle_310._popup.options.maxWidth = 300;
+      map.addLayer(circle_310)
+      
+      var circle_311 = L.circle([40.69165183, -73.9999786], 140.226166108, {
+                            color: '#ffeea3',
+                            fillColor: '#ffeea3',
+                            fillOpacity: 0.6
+                            });
+      circle_311.bindPopup("Atlantic Ave & Furman St");
+      circle_311._popup.options.maxWidth = 300;
+      map.addLayer(circle_311)
+      
+      var circle_312 = L.circle([40.69474881, -73.98362464], 80.476260291, {
+                            color: '#fff1ab',
+                            fillColor: '#fff1ab',
+                            fillOpacity: 0.6
+                            });
+      circle_312.bindPopup("Johnson St & Gold St");
+      circle_312._popup.options.maxWidth = 300;
+      map.addLayer(circle_312)
+      
+      var circle_313 = L.circle([40.75510267, -73.97498696], 70.4525546978, {
+                            color: '#feb852',
+                            fillColor: '#feb852',
+                            fillOpacity: 0.6
+                            });
+      circle_313.bindPopup("E 47 St & Park Ave");
+      circle_313._popup.options.maxWidth = 300;
+      map.addLayer(circle_313)
+      
+      var circle_314 = L.circle([40.6809833854, -73.9500479759], 129.158761402, {
+                            color: '#fffdc8',
+                            fillColor: '#fffdc8',
+                            fillOpacity: 0.6
+                            });
+      circle_314.bindPopup("Macon St & Nostrand Ave");
+      circle_314._popup.options.maxWidth = 300;
+      map.addLayer(circle_314)
+      
+      var circle_315 = L.circle([40.7568001, -73.98291153], 81.0383358584, {
+                            color: '#feae4a',
+                            fillColor: '#feae4a',
+                            fillOpacity: 0.6
+                            });
+      circle_315.bindPopup("W 45 St & 6 Ave");
+      circle_315._popup.options.maxWidth = 300;
+      map.addLayer(circle_315)
+      
+      var circle_316 = L.circle([40.695065, -73.987167], 136.961835994, {
+                            color: '#ffec9f',
+                            fillColor: '#ffec9f',
+                            fillOpacity: 0.6
+                            });
+      circle_316.bindPopup("Jay St & Tech Pl");
+      circle_316._popup.options.maxWidth = 300;
+      map.addLayer(circle_316)
+      
+      var circle_317 = L.circle([40.71273266, -74.0046073], 114.869222957, {
+                            color: '#fd903d',
+                            fillColor: '#fd903d',
+                            fillOpacity: 0.6
+                            });
+      circle_317.bindPopup("Centre St & Chambers St");
+      circle_317._popup.options.maxWidth = 300;
+      map.addLayer(circle_317)
+      
+      var circle_318 = L.circle([40.75172632, -73.98753523], 71.4467839699, {
+                            color: '#fee38b',
+                            fillColor: '#fee38b',
+                            fillOpacity: 0.6
+                            });
+      circle_318.bindPopup("Broadway & W 37 St");
+      circle_318._popup.options.maxWidth = 300;
+      map.addLayer(circle_318)
+      
+      var circle_319 = L.circle([40.7037992, -74.00838676], 107.559566523, {
+                            color: '#ffe998',
+                            fillColor: '#ffe998',
+                            fillOpacity: 0.6
+                            });
+      circle_319.bindPopup("Old Slip & Front St");
+      circle_319._popup.options.maxWidth = 300;
+      map.addLayer(circle_319)
+      
+      var circle_320 = L.circle([40.6845683, -73.95881081], 98.1035916824, {
+                            color: '#fffdc8',
+                            fillColor: '#fffdc8',
+                            fillOpacity: 0.6
+                            });
+      circle_320.bindPopup("Monroe St & Classon Ave");
+      circle_320._popup.options.maxWidth = 300;
+      map.addLayer(circle_320)
+      
+      var circle_321 = L.circle([40.70531194, -73.97100056], 86.7998861048, {
+                            color: '#ffffcc',
+                            fillColor: '#ffffcc',
+                            fillOpacity: 0.6
+                            });
+      circle_321.bindPopup("Railroad Ave & Kay Ave");
+      circle_321._popup.options.maxWidth = 300;
+      map.addLayer(circle_321)
+      
+      var circle_322 = L.circle([40.70365182, -74.01167797], 91.9375294811, {
+                            color: '#ffefa5',
+                            fillColor: '#ffefa5',
+                            fillOpacity: 0.6
+                            });
+      circle_322.bindPopup("Broad St & Bridge St");
+      circle_322._popup.options.maxWidth = 300;
+      map.addLayer(circle_322)
+      
+      var circle_323 = L.circle([40.68864636, -73.98263429], 179.359842932, {
+                            color: '#fffdc8',
+                            fillColor: '#fffdc8',
+                            fillOpacity: 0.6
+                            });
+      circle_323.bindPopup("Hanover Pl & Livingston St");
+      circle_323._popup.options.maxWidth = 300;
+      map.addLayer(circle_323)
+      
+      var circle_324 = L.circle([40.70853074, -73.96408963], 176.451644182, {
+                            color: '#fffdc6',
+                            fillColor: '#fffdc6',
+                            fillOpacity: 0.6
+                            });
+      circle_324.bindPopup("Bedford Ave & S 9th St");
+      circle_324._popup.options.maxWidth = 300;
+      map.addLayer(circle_324)
+      
+      var circle_325 = L.circle([40.73524276, -73.98758561], 67.8256847231, {
+                            color: '#feca66',
+                            fillColor: '#feca66',
+                            fillOpacity: 0.6
+                            });
+      circle_325.bindPopup("E 16 St & Irving Pl");
+      circle_325._popup.options.maxWidth = 300;
+      map.addLayer(circle_325)
+      
+      var circle_326 = L.circle([40.76228826, -73.98336183], 77.9059982184, {
+                            color: '#fedd7e',
+                            fillColor: '#fedd7e',
+                            fillOpacity: 0.6
+                            });
+      circle_326.bindPopup("Broadway & W 51 St");
+      circle_326._popup.options.maxWidth = 300;
+      map.addLayer(circle_326)
+      
+      var circle_327 = L.circle([40.76064679, -73.98442659], 81.2919356421, {
+                            color: '#feba55',
+                            fillColor: '#feba55',
+                            fillOpacity: 0.6
+                            });
+      circle_327.bindPopup("Broadway & W 49 St");
+      circle_327._popup.options.maxWidth = 300;
+      map.addLayer(circle_327)
+      
+      var circle_328 = L.circle([40.7652654, -73.98192338], 92.3737968406, {
+                            color: '#fed977',
+                            fillColor: '#fed977',
+                            fillOpacity: 0.6
+                            });
+      circle_328.bindPopup("Broadway & W 55 St");
+      circle_328._popup.options.maxWidth = 300;
+      map.addLayer(circle_328)
+      
+      var circle_329 = L.circle([40.69580705, -73.97355569], 74.1509655434, {
+                            color: '#fffcc5',
+                            fillColor: '#fffcc5',
+                            fillOpacity: 0.6
+                            });
+      circle_329.bindPopup("Carlton Ave & Park Ave");
+      circle_329._popup.options.maxWidth = 300;
+      map.addLayer(circle_329)
+      
+      var circle_330 = L.circle([40.74096374, -73.98602213], 65.3565869074, {
+                            color: '#feb04b',
+                            fillColor: '#feb04b',
+                            fillOpacity: 0.6
+                            });
+      circle_330.bindPopup("E 24 St & Park Ave S");
+      circle_330._popup.options.maxWidth = 300;
+      map.addLayer(circle_330)
+      
+      var circle_331 = L.circle([40.752416, -73.97837], 81.3181941474, {
+                            color: '#b20026',
+                            fillColor: '#b20026',
+                            fillOpacity: 0.6
+                            });
+      circle_331.bindPopup("E 42 St & Vanderbilt Ave");
+      circle_331._popup.options.maxWidth = 300;
+      map.addLayer(circle_331)
+      
+      var circle_332 = L.circle([40.69991755, -73.98971773], 130.222502575, {
+                            color: '#fff7b9',
+                            fillColor: '#fff7b9',
+                            fillOpacity: 0.6
+                            });
+      circle_332.bindPopup("Cadman Plaza E & Red Cross Pl");
+      circle_332._popup.options.maxWidth = 300;
+      map.addLayer(circle_332)
+      
+      var circle_333 = L.circle([40.771522, -73.990541], 137.635180355, {
+                            color: '#fecf6b',
+                            fillColor: '#fecf6b',
+                            fillOpacity: 0.6
+                            });
+      circle_333.bindPopup("11 Ave & W 59 St");
+      circle_333._popup.options.maxWidth = 300;
+      map.addLayer(circle_333)
+      
+      var circle_334 = L.circle([40.69383, -73.990539], 93.2748884924, {
+                            color: '#fff1ab',
+                            fillColor: '#fff1ab',
+                            fillOpacity: 0.6
+                            });
+      circle_334.bindPopup("Cadman Plaza West & Montague St");
+      circle_334._popup.options.maxWidth = 300;
+      map.addLayer(circle_334)
+      
+      var circle_335 = L.circle([40.752141, -73.979782], 76.9782574068, {
+                            color: '#fece6a',
+                            fillColor: '#fece6a',
+                            fillOpacity: 0.6
+                            });
+      circle_335.bindPopup("E 41 St & Madison Ave");
+      circle_335._popup.options.maxWidth = 300;
+      map.addLayer(circle_335)
+      
+      var circle_336 = L.circle([40.717571, -74.005549], 78.6986219081, {
+                            color: '#ffe895',
+                            fillColor: '#ffe895',
+                            fillOpacity: 0.6
+                            });
+      circle_336.bindPopup("Leonard St & Church St");
+      circle_336._popup.options.maxWidth = 300;
+      map.addLayer(circle_336)
+      
+      var circle_337 = L.circle([40.728145, -73.990214], 66.2156829023, {
+                            color: '#feb953',
+                            fillColor: '#feb953',
+                            fillOpacity: 0.6
+                            });
+      circle_337.bindPopup("Shevchenko Pl & E 7 St");
+      circle_337._popup.options.maxWidth = 300;
+      map.addLayer(circle_337)
+      
+      var circle_338 = L.circle([40.699773, -73.979927], 65.0876510067, {
+                            color: '#fffecb',
+                            fillColor: '#fffecb',
+                            fillOpacity: 0.6
+                            });
+      circle_338.bindPopup("Sands St & Navy St");
+      circle_338._popup.options.maxWidth = 300;
+      map.addLayer(circle_338)
+      
+      var circle_339 = L.circle([40.701907, -74.013942], 129.178954664, {
+                            color: '#fee289',
+                            fillColor: '#fee289',
+                            fillOpacity: 0.6
+                            });
+      circle_339.bindPopup("Bus Slip & State St");
+      circle_339._popup.options.maxWidth = 300;
+      map.addLayer(circle_339)
+      
+      var circle_340 = L.circle([40.707873, -74.00167], 111.905095023, {
+                            color: '#ffeea3',
+                            fillColor: '#ffeea3',
+                            fillOpacity: 0.6
+                            });
+      circle_340.bindPopup("Peck Slip & Front Street");
+      circle_340._popup.options.maxWidth = 300;
+      map.addLayer(circle_340)
+      
+      var circle_341 = L.circle([40.688226, -73.979382], 96.1476872648, {
+                            color: '#fff3ae',
+                            fillColor: '#fff3ae',
+                            fillOpacity: 0.6
+                            });
+      circle_341.bindPopup("Fulton St & Rockwell Pl");
+      circle_341._popup.options.maxWidth = 300;
+      map.addLayer(circle_341)
+      
+      var circle_342 = L.circle([40.751873, -73.977706], 81.3181941474, {
+                            color: '#b20026',
+                            fillColor: '#b20026',
+                            fillOpacity: 0.6
+                            });
+      circle_342.bindPopup("Pershing Square North");
+      circle_342._popup.options.maxWidth = 300;
+      map.addLayer(circle_342)
+      
+      var circle_343 = L.circle([40.751581, -73.97791], 76.9782574068, {
+                            color: '#fece6a',
+                            fillColor: '#fece6a',
+                            fillOpacity: 0.6
+                            });
+      circle_343.bindPopup("Pershing Square South");
+      circle_343._popup.options.maxWidth = 300;
+      map.addLayer(circle_343)
+      
+      var circle_344 = L.circle([40.75666, -73.976684], 78.6386905755, {
+                            color: '#ffec9f',
+                            fillColor: '#ffec9f',
+                            fillOpacity: 0.6
+                            });
+      circle_344.bindPopup("E 48 St & Madison Ave");
+      circle_344._popup.options.maxWidth = 300;
+      map.addLayer(circle_344)
+      
+      var circle_345 = L.circle([40.744023, -73.976056], 71.5686219432, {
+                            color: '#fee085',
+                            fillColor: '#fee085',
+                            fillOpacity: 0.6
+                            });
+      circle_345.bindPopup("E 33 St & 2 Ave");
+      circle_345._popup.options.maxWidth = 300;
+      map.addLayer(circle_345)
+      
+
+      
+
+      
+
+      
+
+      
+
+   </script>
+
+</body>
