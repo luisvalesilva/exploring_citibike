@@ -4,5 +4,5 @@ Data analysis for post on my Data Science website. In this analysis I get CitiBk
 the whole year of 2014 and build an interactive visualization of CitiBike station use, according
 to trip counts and trip durations, on maps of the station network.
 
-The complete code can be found in the Jupyter Notebook [file](exploring_citibike.ipynb) here.
-Read the website post [here](http://luisvalesilva.github.io/datasimple)
+The complete code can be found in the Jupyter Notebook file in this [repo](exploring_citibike.ipynb).
+Read the website post [here](http://luisvalesilva.github.io/datasimple/citibike.html)
