@@ -5,4 +5,5 @@ the whole year of 2014 and build an interactive visualization of CitiBike statio
 to trip counts and trip durations, on maps of the station network.
 
 The complete code can be found in the Jupyter Notebook file in this [repo](exploring_citibike.ipynb).
-Read the website post [here](http://luisvalesilva.github.io/datasimple/citibike.html)
+
+You can read the website post [here](http://luisvalesilva.github.io/datasimple/citibike.html).
