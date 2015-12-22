@@ -1,9 +1,15 @@
 # Exploring CitiBike
 
-Data analysis for post on my Data Science website. In this analysis I get CitiBke data from
-the whole year of 2014 and build an interactive visualization of CitiBike station use, according
-to trip counts and trip durations, on maps of the station network.
+Data analysis using Python for post on my Data Science website.
 
-The complete code can be found in the Jupyter Notebook file in this [repo](exploring_citibike.ipynb).
+In the analysis I get CitiBike data from the whole year
+of 2014 and build a visualization of CitiBike station use
+(focusing on trip counts and trip durations). I use _Pandas_ for
+data manipulation and _Folium_ to produce interactive maps of the
+CitiBike station network.
 
-You can read the website post [here](http://luisvalesilva.github.io/datasimple/citibike.html).
+The complete code can be found in the Jupyter Notebook file in this
+[repo](exploring_citibike.ipynb).
+
+You can read the website post
+[here](http://luisvalesilva.github.io/datasimple/citibike.html).
