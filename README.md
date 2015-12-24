@@ -9,7 +9,8 @@ data manipulation and _Folium_ to produce interactive maps of the
 CitiBike station network.
 
 The complete code can be found in the Jupyter Notebook (_.ipynb_)
-[file](exploring_citibike.ipynb).
+file [here](exploring_citibike.ipynb) in the repo and on
+Jupyter's [nbviewer](http://nbviewer.ipython.org/github/luisvalesilva/exploring_citibike/blob/master/exploring_citibike.ipynb).
 
 You can read the website post
 [here](http://luisvalesilva.github.io/datasimple/citibike.html).
